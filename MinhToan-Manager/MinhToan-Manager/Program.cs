@@ -31,8 +31,24 @@ namespace MinhToan_Manager
 
             try
             {
-                frm_Main mainForm = new frm_Main();
-                Application.Run(mainForm);
+                bool temp = false;
+                do
+                {
+                    temp = false;
+                    frm_Login frLogin = new frm_Login();
+
+                    if (frLogin.ShowDialog() == DialogResult.OK)
+                    {
+                        frm_Main frMain = new frm_Main();
+
+                        if (frMain.ShowDialog() == DialogResult.Yes)
+                        {
+                            frMain.Close();
+                            temp = true;
+                        }
+                    }
+                }
+                while (temp);
             }
             catch (Exception e)
             {

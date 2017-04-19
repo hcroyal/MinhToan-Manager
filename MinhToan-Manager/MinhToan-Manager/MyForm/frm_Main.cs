@@ -7,6 +7,7 @@ using System.Text;
 using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
+using MinhToan_Manager.Properties;
 
 namespace MinhToan_Manager.MyForm
 {
@@ -66,6 +67,33 @@ namespace MinhToan_Manager.MyForm
         {
             InitializeComponent();
         }
-       
+
+        private void frm_Main_Load(object sender, EventArgs e)
+        {
+            if (Global.gioiTinh=="nam")
+            {
+                pic_User.Image = Image.FromFile(@"F:\Hoc tap\DoAnTotNghiep\MinhToan-Manager\MinhToan-Manager\MinhToan-Manager\Resources\nam.png");
+                pic_User.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                pic_User.Image = Image.FromFile(@"F:\Hoc tap\DoAnTotNghiep\MinhToan-Manager\MinhToan-Manager\MinhToan-Manager\Resources\nu.png");
+                pic_User.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            lbl_HoTen.Text = Global.HoTen;
+            lbl_TenDangNhap.Text = Global.tenDangNhap;
+            lbl_QuyenHan.Text = Global.QuyenHan;
+        }
+
+        private void btn_DangNhapLai_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DialogResult = DialogResult.Yes;
+            Close();
+        }
+
+        private void btn_Thoat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
