@@ -85,15 +85,20 @@ namespace MinhToan_Manager.MyForm
             lbl_QuyenHan.Text = Global.QuyenHan;
         }
 
-        private void btn_DangNhapLai_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            DialogResult = DialogResult.Yes;
-            Close();
-        }
+        //private void btn_DangNhapLai_ItemClick(object sender, ItemClickEventArgs e)
+        //{
+        //    DialogResult = DialogResult.Yes;
+        //    Close();
+        //}
 
-        private void btn_Thoat_ItemClick(object sender, ItemClickEventArgs e)
+        //private void btn_Thoat_ItemClick(object sender, ItemClickEventArgs e)
+        //{
+        //    Application.Exit();
+        //}
+
+        private void skinRibbonGalleryBarItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Application.Exit();
+    
         }
     }
 }
