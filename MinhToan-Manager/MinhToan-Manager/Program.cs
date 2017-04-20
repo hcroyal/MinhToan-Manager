@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using DevExpress.LookAndFeel;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
 using MinhToan_Manager.MyForm;
+using MinhToan_Manager.Properties;
 
 namespace MinhToan_Manager
 {
@@ -28,7 +30,7 @@ namespace MinhToan_Manager
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-
+            UserLookAndFeel.Default.SetSkinStyle(Settings.Default.ApplicationSkinName);
             try
             {
                 bool temp = false;
@@ -39,7 +41,7 @@ namespace MinhToan_Manager
 
                     if (frLogin.ShowDialog() == DialogResult.OK)
                     {
-                        frm_Main frMain = new frm_Main();
+                        Main frMain = new Main();
 
                         if (frMain.ShowDialog() == DialogResult.Yes)
                         {

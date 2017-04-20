@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=HC-COMPUTER;Initial Catalog=QLKS_MinhToan;Persist Security Info=True;User ID=sa;Password=123456</Value>
     </Setting>
+    <Setting Name="ApplicationSkinName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Summer</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
