@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevExpress.LookAndFeel;
 using DevExpress.XtraBars;
 using MinhToan_Manager.Properties;
+using DevExpress.XtraScheduler;
 
 namespace MinhToan_Manager.MyForm
 {

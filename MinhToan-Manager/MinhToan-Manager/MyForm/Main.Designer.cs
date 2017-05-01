@@ -30,10 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
+            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btn_DangNhapLai = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Thoat = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.btn_SoDo = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_KhachLe = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_KhachDoan = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_DanhSachDatPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.ZA = new DevExpress.XtraBars.BarButtonItem();
             this.page_KinhDoanh = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.page_LeTan = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -51,10 +59,14 @@
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.hideContainerLeft = new DevExpress.XtraBars.Docking.AutoHideContainer();
             this.dock_ChucNang = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.lbl_QuyenHan = new DevExpress.XtraEditors.LabelControl();
             this.lbl_HoTen = new DevExpress.XtraEditors.LabelControl();
@@ -64,13 +76,11 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pic_User = new System.Windows.Forms.PictureBox();
-            this.btn_SoDo = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_KhachLe = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_KhachDoan = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_DanhSachDatPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.ZA = new DevExpress.XtraBars.BarButtonItem();
+            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
+            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
+            this.hideContainerLeft.SuspendLayout();
             this.dock_ChucNang.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -78,6 +88,8 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_User)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -130,6 +142,36 @@
             this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
             this.skinRibbonGalleryBarItem1.Id = 3;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
+            // btn_SoDo
+            // 
+            this.btn_SoDo.Caption = "Sơ đồ";
+            this.btn_SoDo.Id = 4;
+            this.btn_SoDo.Name = "btn_SoDo";
+            // 
+            // btn_KhachLe
+            // 
+            this.btn_KhachLe.Caption = "Khách lẻ";
+            this.btn_KhachLe.Id = 5;
+            this.btn_KhachLe.Name = "btn_KhachLe";
+            // 
+            // btn_KhachDoan
+            // 
+            this.btn_KhachDoan.Caption = "Khách đoàn";
+            this.btn_KhachDoan.Id = 6;
+            this.btn_KhachDoan.Name = "btn_KhachDoan";
+            // 
+            // btn_DanhSachDatPhong
+            // 
+            this.btn_DanhSachDatPhong.Caption = "DS Đặt phòng";
+            this.btn_DanhSachDatPhong.Id = 7;
+            this.btn_DanhSachDatPhong.Name = "btn_DanhSachDatPhong";
+            // 
+            // ZA
+            // 
+            this.ZA.Caption = "Tìm kiếm";
+            this.ZA.Id = 8;
+            this.ZA.Name = "ZA";
             // 
             // page_KinhDoanh
             // 
@@ -237,9 +279,9 @@
             // 
             // dockManager1
             // 
+            this.dockManager1.AutoHideContainers.AddRange(new DevExpress.XtraBars.Docking.AutoHideContainer[] {
+            this.hideContainerLeft});
             this.dockManager1.Form = this;
-            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.dock_ChucNang});
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -252,16 +294,28 @@
             "DevExpress.XtraBars.Navigation.TileNavPane",
             "DevExpress.XtraBars.TabFormControl"});
             // 
+            // hideContainerLeft
+            // 
+            this.hideContainerLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.hideContainerLeft.Controls.Add(this.dock_ChucNang);
+            this.hideContainerLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.hideContainerLeft.Location = new System.Drawing.Point(0, 143);
+            this.hideContainerLeft.Name = "hideContainerLeft";
+            this.hideContainerLeft.Size = new System.Drawing.Size(19, 467);
+            // 
             // dock_ChucNang
             // 
             this.dock_ChucNang.Controls.Add(this.dockPanel1_Container);
             this.dock_ChucNang.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dock_ChucNang.ID = new System.Guid("f067683c-26de-4689-8f3e-5bbc02bc15d5");
-            this.dock_ChucNang.Location = new System.Drawing.Point(0, 143);
+            this.dock_ChucNang.Location = new System.Drawing.Point(0, 0);
             this.dock_ChucNang.Name = "dock_ChucNang";
             this.dock_ChucNang.OriginalSize = new System.Drawing.Size(200, 200);
+            this.dock_ChucNang.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.dock_ChucNang.SavedIndex = 0;
             this.dock_ChucNang.Size = new System.Drawing.Size(200, 467);
             this.dock_ChucNang.Text = "Chức năng";
+            this.dock_ChucNang.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
             // 
             // dockPanel1_Container
             // 
@@ -278,6 +332,10 @@
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup1});
+            this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.navBarItem1,
+            this.navBarItem2,
+            this.navBarItem3});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 191;
@@ -289,7 +347,26 @@
             // 
             this.navBarGroup1.Caption = "navBarGroup1";
             this.navBarGroup1.Expanded = true;
+            this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3)});
             this.navBarGroup1.Name = "navBarGroup1";
+            // 
+            // navBarItem1
+            // 
+            this.navBarItem1.Caption = "navBarItem1";
+            this.navBarItem1.Name = "navBarItem1";
+            // 
+            // navBarItem2
+            // 
+            this.navBarItem2.Caption = "navBarItem2";
+            this.navBarItem2.Name = "navBarItem2";
+            // 
+            // navBarItem3
+            // 
+            this.navBarItem3.Caption = "navBarItem3";
+            this.navBarItem3.Name = "navBarItem3";
             // 
             // panelControl1
             // 
@@ -388,35 +465,21 @@
             this.pic_User.TabIndex = 0;
             this.pic_User.TabStop = false;
             // 
-            // btn_SoDo
+            // schedulerControl1
             // 
-            this.btn_SoDo.Caption = "Sơ đồ";
-            this.btn_SoDo.Id = 4;
-            this.btn_SoDo.Name = "btn_SoDo";
-            // 
-            // btn_KhachLe
-            // 
-            this.btn_KhachLe.Caption = "Khách lẻ";
-            this.btn_KhachLe.Id = 5;
-            this.btn_KhachLe.Name = "btn_KhachLe";
-            // 
-            // btn_KhachDoan
-            // 
-            this.btn_KhachDoan.Caption = "Khách đoàn";
-            this.btn_KhachDoan.Id = 6;
-            this.btn_KhachDoan.Name = "btn_KhachDoan";
-            // 
-            // btn_DanhSachDatPhong
-            // 
-            this.btn_DanhSachDatPhong.Caption = "DS Đặt phòng";
-            this.btn_DanhSachDatPhong.Id = 7;
-            this.btn_DanhSachDatPhong.Name = "btn_DanhSachDatPhong";
-            // 
-            // ZA
-            // 
-            this.ZA.Caption = "Tìm kiếm";
-            this.ZA.Id = 8;
-            this.ZA.Name = "ZA";
+            this.schedulerControl1.DataStorage = this.schedulerStorage1;
+            this.schedulerControl1.Location = new System.Drawing.Point(235, 166);
+            this.schedulerControl1.MenuManager = this.ribbon;
+            this.schedulerControl1.Name = "schedulerControl1";
+            this.schedulerControl1.Size = new System.Drawing.Size(665, 421);
+            this.schedulerControl1.Start = new System.DateTime(2017, 4, 22, 0, 0, 0, 0);
+            this.schedulerControl1.TabIndex = 5;
+            this.schedulerControl1.Text = "schedulerControl1";
+            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
+            this.schedulerControl1.Views.FullWeekView.Enabled = true;
+            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
+            this.schedulerControl1.Views.WeekView.Enabled = false;
+            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
             // 
             // Main
             // 
@@ -424,7 +487,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 641);
-            this.Controls.Add(this.dock_ChucNang);
+            this.Controls.Add(this.schedulerControl1);
+            this.Controls.Add(this.hideContainerLeft);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -437,6 +501,7 @@
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
+            this.hideContainerLeft.ResumeLayout(false);
             this.dock_ChucNang.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
@@ -445,6 +510,8 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_User)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,5 +558,11 @@
         private DevExpress.XtraBars.BarButtonItem btn_KhachDoan;
         private DevExpress.XtraBars.BarButtonItem btn_DanhSachDatPhong;
         private DevExpress.XtraBars.BarButtonItem ZA;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem1;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem2;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem3;
+        private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerLeft;
+        private DevExpress.XtraScheduler.SchedulerControl schedulerControl1;
+        private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
     }
 }
