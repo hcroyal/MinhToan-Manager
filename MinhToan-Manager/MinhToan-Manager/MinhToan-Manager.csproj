@@ -77,6 +77,12 @@
     <Compile Include="MyForm\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\frm_SoDoPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frm_SoDoPhong.Designer.cs">
+      <DependentUpon>frm_SoDoPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\Global.cs" />
     <Compile Include="MyForm\Main.cs">
       <SubType>Form</SubType>
@@ -96,6 +102,9 @@
     <Compile Include="WinApi.cs" />
     <EmbeddedResource Include="MyForm\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm\frm_SoDoPhong.resx">
+      <DependentUpon>frm_SoDoPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

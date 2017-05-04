@@ -30,20 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btn_DangNhapLai = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Thoat = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
-            this.btn_SoDo = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_KhachLe = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_KhachDoan = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_DanhSachDatPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.ZA = new DevExpress.XtraBars.BarButtonItem();
-            this.page_KinhDoanh = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.page_LeTan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.page_NhaHang = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -76,8 +66,15 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pic_User = new System.Windows.Forms.PictureBox();
-            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
             this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.btn_SoDo = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_TinhHinh = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_KhachLe = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_KhachDoan = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_CheckIn = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_CheckOut = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_DoiPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_TimKiem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.hideContainerLeft.SuspendLayout();
@@ -88,7 +85,6 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_User)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,15 +98,17 @@
             this.btn_Thoat,
             this.skinRibbonGalleryBarItem1,
             this.btn_SoDo,
+            this.btn_TinhHinh,
             this.btn_KhachLe,
             this.btn_KhachDoan,
-            this.btn_DanhSachDatPhong,
-            this.ZA});
+            this.btn_CheckIn,
+            this.btn_CheckOut,
+            this.btn_DoiPhong,
+            this.btn_TimKiem});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 9;
+            this.ribbon.MaxItemId = 17;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.page_KinhDoanh,
             this.page_LeTan,
             this.page_NhaHang,
             this.page_BuongPhong,
@@ -143,53 +141,6 @@
             this.skinRibbonGalleryBarItem1.Id = 3;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
-            // btn_SoDo
-            // 
-            this.btn_SoDo.Caption = "Sơ đồ";
-            this.btn_SoDo.Id = 4;
-            this.btn_SoDo.Name = "btn_SoDo";
-            // 
-            // btn_KhachLe
-            // 
-            this.btn_KhachLe.Caption = "Khách lẻ";
-            this.btn_KhachLe.Id = 5;
-            this.btn_KhachLe.Name = "btn_KhachLe";
-            // 
-            // btn_KhachDoan
-            // 
-            this.btn_KhachDoan.Caption = "Khách đoàn";
-            this.btn_KhachDoan.Id = 6;
-            this.btn_KhachDoan.Name = "btn_KhachDoan";
-            // 
-            // btn_DanhSachDatPhong
-            // 
-            this.btn_DanhSachDatPhong.Caption = "DS Đặt phòng";
-            this.btn_DanhSachDatPhong.Id = 7;
-            this.btn_DanhSachDatPhong.Name = "btn_DanhSachDatPhong";
-            // 
-            // ZA
-            // 
-            this.ZA.Caption = "Tìm kiếm";
-            this.ZA.Id = 8;
-            this.ZA.Name = "ZA";
-            // 
-            // page_KinhDoanh
-            // 
-            this.page_KinhDoanh.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.page_KinhDoanh.Name = "page_KinhDoanh";
-            this.page_KinhDoanh.Text = "Kinh doanh";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.btn_SoDo);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btn_KhachLe);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btn_KhachDoan);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btn_DanhSachDatPhong);
-            this.ribbonPageGroup1.ItemLinks.Add(this.ZA);
-            this.ribbonPageGroup1.ItemsLayout = DevExpress.XtraBars.Ribbon.RibbonPageGroupItemsLayout.OneRow;
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            // 
             // page_LeTan
             // 
             this.page_LeTan.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -199,8 +150,16 @@
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_SoDo);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_TinhHinh);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_KhachLe);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_KhachDoan);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_CheckIn);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_CheckOut);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_DoiPhong);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btn_TimKiem);
+            this.ribbonPageGroup2.ItemsLayout = DevExpress.XtraBars.Ribbon.RibbonPageGroupItemsLayout.OneRow;
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
             // page_NhaHang
             // 
@@ -465,21 +424,61 @@
             this.pic_User.TabIndex = 0;
             this.pic_User.TabStop = false;
             // 
-            // schedulerControl1
+            // btn_SoDo
             // 
-            this.schedulerControl1.DataStorage = this.schedulerStorage1;
-            this.schedulerControl1.Location = new System.Drawing.Point(235, 166);
-            this.schedulerControl1.MenuManager = this.ribbon;
-            this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.Size = new System.Drawing.Size(665, 421);
-            this.schedulerControl1.Start = new System.DateTime(2017, 4, 22, 0, 0, 0, 0);
-            this.schedulerControl1.TabIndex = 5;
-            this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
-            this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
-            this.schedulerControl1.Views.WeekView.Enabled = false;
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
+            this.btn_SoDo.Caption = "Sơ đồ";
+            this.btn_SoDo.Id = 9;
+            this.btn_SoDo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_SoDo.ImageOptions.LargeImage")));
+            this.btn_SoDo.Name = "btn_SoDo";
+            // 
+            // btn_TinhHinh
+            // 
+            this.btn_TinhHinh.Caption = "Tình hình";
+            this.btn_TinhHinh.Id = 10;
+            this.btn_TinhHinh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_TinhHinh.ImageOptions.LargeImage")));
+            this.btn_TinhHinh.Name = "btn_TinhHinh";
+            // 
+            // btn_KhachLe
+            // 
+            this.btn_KhachLe.Caption = "Khách lẻ";
+            this.btn_KhachLe.Id = 11;
+            this.btn_KhachLe.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_KhachLe.ImageOptions.LargeImage")));
+            this.btn_KhachLe.Name = "btn_KhachLe";
+            // 
+            // btn_KhachDoan
+            // 
+            this.btn_KhachDoan.Caption = "Khách đoàn";
+            this.btn_KhachDoan.Id = 12;
+            this.btn_KhachDoan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_KhachDoan.ImageOptions.LargeImage")));
+            this.btn_KhachDoan.Name = "btn_KhachDoan";
+            // 
+            // btn_CheckIn
+            // 
+            this.btn_CheckIn.Caption = "Check in";
+            this.btn_CheckIn.Id = 13;
+            this.btn_CheckIn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_CheckIn.ImageOptions.LargeImage")));
+            this.btn_CheckIn.Name = "btn_CheckIn";
+            // 
+            // btn_CheckOut
+            // 
+            this.btn_CheckOut.Caption = "Check Out";
+            this.btn_CheckOut.Id = 14;
+            this.btn_CheckOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_CheckOut.ImageOptions.LargeImage")));
+            this.btn_CheckOut.Name = "btn_CheckOut";
+            // 
+            // btn_DoiPhong
+            // 
+            this.btn_DoiPhong.Caption = "Đổi phòng";
+            this.btn_DoiPhong.Id = 15;
+            this.btn_DoiPhong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_DoiPhong.ImageOptions.LargeImage")));
+            this.btn_DoiPhong.Name = "btn_DoiPhong";
+            // 
+            // btn_TimKiem
+            // 
+            this.btn_TimKiem.Caption = "Tìm kiếm";
+            this.btn_TimKiem.Id = 16;
+            this.btn_TimKiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_TimKiem.ImageOptions.LargeImage")));
+            this.btn_TimKiem.Name = "btn_TimKiem";
             // 
             // Main
             // 
@@ -487,11 +486,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 641);
-            this.Controls.Add(this.schedulerControl1);
             this.Controls.Add(this.hideContainerLeft);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.Name = "Main";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
@@ -510,7 +509,6 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_User)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -520,8 +518,6 @@
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
-        private DevExpress.XtraBars.Ribbon.RibbonPage page_KinhDoanh;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
         private DevExpress.XtraBars.Docking.DockPanel dock_ChucNang;
@@ -553,16 +549,18 @@
         private DevExpress.XtraBars.BarButtonItem btn_Thoat;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
-        private DevExpress.XtraBars.BarButtonItem btn_SoDo;
-        private DevExpress.XtraBars.BarButtonItem btn_KhachLe;
-        private DevExpress.XtraBars.BarButtonItem btn_KhachDoan;
-        private DevExpress.XtraBars.BarButtonItem btn_DanhSachDatPhong;
-        private DevExpress.XtraBars.BarButtonItem ZA;
         private DevExpress.XtraNavBar.NavBarItem navBarItem1;
         private DevExpress.XtraNavBar.NavBarItem navBarItem2;
         private DevExpress.XtraNavBar.NavBarItem navBarItem3;
         private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerLeft;
-        private DevExpress.XtraScheduler.SchedulerControl schedulerControl1;
         private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
+        private DevExpress.XtraBars.BarButtonItem btn_SoDo;
+        private DevExpress.XtraBars.BarButtonItem btn_TinhHinh;
+        private DevExpress.XtraBars.BarButtonItem btn_KhachLe;
+        private DevExpress.XtraBars.BarButtonItem btn_KhachDoan;
+        private DevExpress.XtraBars.BarButtonItem btn_CheckIn;
+        private DevExpress.XtraBars.BarButtonItem btn_CheckOut;
+        private DevExpress.XtraBars.BarButtonItem btn_DoiPhong;
+        private DevExpress.XtraBars.BarButtonItem btn_TimKiem;
     }
 }
