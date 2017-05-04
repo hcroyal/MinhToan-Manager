@@ -31,6 +31,7 @@ namespace MinhToan_Manager
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle(Settings.Default.ApplicationSkinName);
+            //Application.Run(new frm_SoDoPhong());
             try
             {
                 bool temp = false;

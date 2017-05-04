@@ -71,6 +71,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Data.dbml</DependentUpon>
     </Compile>
+    <Compile Include="MyForm\frm_KhachLe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyForm\frm_KhachLe.Designer.cs">
+      <DependentUpon>frm_KhachLe.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyForm\frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </Compile>
     <Compile Include="SingleInstance.cs" />
     <Compile Include="WinApi.cs" />
+    <EmbeddedResource Include="MyForm\frm_KhachLe.resx">
+      <DependentUpon>frm_KhachLe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
+    <None Include="Resources\icon-checkin.png" />
     <None Include="Resources\Logout.png" />
     <None Include="Resources\Logo1.png" />
     <None Include="Resources\logo.png" />

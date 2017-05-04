@@ -34,6 +34,14 @@
             this.btn_DangNhapLai = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Thoat = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.btn_SoDo = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_TinhHinh = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_KhachLe = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_KhachDoan = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_CheckIn = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_CheckOut = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_DoiPhong = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_TimKiem = new DevExpress.XtraBars.BarButtonItem();
             this.page_LeTan = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.page_NhaHang = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -67,14 +75,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pic_User = new System.Windows.Forms.PictureBox();
             this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
-            this.btn_SoDo = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_TinhHinh = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_KhachLe = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_KhachDoan = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_CheckIn = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_CheckOut = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_DoiPhong = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_TimKiem = new DevExpress.XtraBars.BarButtonItem();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.hideContainerLeft.SuspendLayout();
@@ -86,6 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_User)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -140,6 +144,64 @@
             this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
             this.skinRibbonGalleryBarItem1.Id = 3;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
+            // 
+            // btn_SoDo
+            // 
+            this.btn_SoDo.Caption = "Sơ đồ";
+            this.btn_SoDo.Id = 9;
+            this.btn_SoDo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_SoDo.ImageOptions.LargeImage")));
+            this.btn_SoDo.Name = "btn_SoDo";
+            this.btn_SoDo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_SoDo_ItemClick);
+            // 
+            // btn_TinhHinh
+            // 
+            this.btn_TinhHinh.Caption = "Tình hình";
+            this.btn_TinhHinh.Id = 10;
+            this.btn_TinhHinh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_TinhHinh.ImageOptions.LargeImage")));
+            this.btn_TinhHinh.Name = "btn_TinhHinh";
+            // 
+            // btn_KhachLe
+            // 
+            this.btn_KhachLe.Caption = "Khách lẻ";
+            this.btn_KhachLe.Id = 11;
+            this.btn_KhachLe.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_KhachLe.ImageOptions.LargeImage")));
+            this.btn_KhachLe.Name = "btn_KhachLe";
+            this.btn_KhachLe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_KhachLe_ItemClick);
+            // 
+            // btn_KhachDoan
+            // 
+            this.btn_KhachDoan.Caption = "Khách đoàn";
+            this.btn_KhachDoan.Id = 12;
+            this.btn_KhachDoan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_KhachDoan.ImageOptions.LargeImage")));
+            this.btn_KhachDoan.Name = "btn_KhachDoan";
+            // 
+            // btn_CheckIn
+            // 
+            this.btn_CheckIn.Caption = "Check in";
+            this.btn_CheckIn.Id = 13;
+            this.btn_CheckIn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_CheckIn.ImageOptions.LargeImage")));
+            this.btn_CheckIn.Name = "btn_CheckIn";
+            // 
+            // btn_CheckOut
+            // 
+            this.btn_CheckOut.Caption = "Check Out";
+            this.btn_CheckOut.Id = 14;
+            this.btn_CheckOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_CheckOut.ImageOptions.LargeImage")));
+            this.btn_CheckOut.Name = "btn_CheckOut";
+            // 
+            // btn_DoiPhong
+            // 
+            this.btn_DoiPhong.Caption = "Đổi phòng";
+            this.btn_DoiPhong.Id = 15;
+            this.btn_DoiPhong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_DoiPhong.ImageOptions.LargeImage")));
+            this.btn_DoiPhong.Name = "btn_DoiPhong";
+            // 
+            // btn_TimKiem
+            // 
+            this.btn_TimKiem.Caption = "Tìm kiếm";
+            this.btn_TimKiem.Id = 16;
+            this.btn_TimKiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_TimKiem.ImageOptions.LargeImage")));
+            this.btn_TimKiem.Name = "btn_TimKiem";
             // 
             // page_LeTan
             // 
@@ -424,61 +486,17 @@
             this.pic_User.TabIndex = 0;
             this.pic_User.TabStop = false;
             // 
-            // btn_SoDo
+            // documentManager1
             // 
-            this.btn_SoDo.Caption = "Sơ đồ";
-            this.btn_SoDo.Id = 9;
-            this.btn_SoDo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_SoDo.ImageOptions.LargeImage")));
-            this.btn_SoDo.Name = "btn_SoDo";
+            this.documentManager1.MdiParent = this;
+            this.documentManager1.MenuManager = this.ribbon;
+            this.documentManager1.View = this.tabbedView1;
+            this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
+            this.tabbedView1});
             // 
-            // btn_TinhHinh
+            // tabbedView1
             // 
-            this.btn_TinhHinh.Caption = "Tình hình";
-            this.btn_TinhHinh.Id = 10;
-            this.btn_TinhHinh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_TinhHinh.ImageOptions.LargeImage")));
-            this.btn_TinhHinh.Name = "btn_TinhHinh";
-            // 
-            // btn_KhachLe
-            // 
-            this.btn_KhachLe.Caption = "Khách lẻ";
-            this.btn_KhachLe.Id = 11;
-            this.btn_KhachLe.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_KhachLe.ImageOptions.LargeImage")));
-            this.btn_KhachLe.Name = "btn_KhachLe";
-            // 
-            // btn_KhachDoan
-            // 
-            this.btn_KhachDoan.Caption = "Khách đoàn";
-            this.btn_KhachDoan.Id = 12;
-            this.btn_KhachDoan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_KhachDoan.ImageOptions.LargeImage")));
-            this.btn_KhachDoan.Name = "btn_KhachDoan";
-            // 
-            // btn_CheckIn
-            // 
-            this.btn_CheckIn.Caption = "Check in";
-            this.btn_CheckIn.Id = 13;
-            this.btn_CheckIn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_CheckIn.ImageOptions.LargeImage")));
-            this.btn_CheckIn.Name = "btn_CheckIn";
-            // 
-            // btn_CheckOut
-            // 
-            this.btn_CheckOut.Caption = "Check Out";
-            this.btn_CheckOut.Id = 14;
-            this.btn_CheckOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_CheckOut.ImageOptions.LargeImage")));
-            this.btn_CheckOut.Name = "btn_CheckOut";
-            // 
-            // btn_DoiPhong
-            // 
-            this.btn_DoiPhong.Caption = "Đổi phòng";
-            this.btn_DoiPhong.Id = 15;
-            this.btn_DoiPhong.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_DoiPhong.ImageOptions.LargeImage")));
-            this.btn_DoiPhong.Name = "btn_DoiPhong";
-            // 
-            // btn_TimKiem
-            // 
-            this.btn_TimKiem.Caption = "Tìm kiếm";
-            this.btn_TimKiem.Id = 16;
-            this.btn_TimKiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_TimKiem.ImageOptions.LargeImage")));
-            this.btn_TimKiem.Name = "btn_TimKiem";
+            this.tabbedView1.RootContainer.Element = null;
             // 
             // Main
             // 
@@ -510,6 +528,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_User)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -562,5 +582,7 @@
         private DevExpress.XtraBars.BarButtonItem btn_CheckOut;
         private DevExpress.XtraBars.BarButtonItem btn_DoiPhong;
         private DevExpress.XtraBars.BarButtonItem btn_TimKiem;
+        private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
     }
 }

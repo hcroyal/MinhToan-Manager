@@ -16,5 +16,14 @@ namespace MinhToan_Manager.MyForm
         {
             InitializeComponent();
         }
+
+        private void popupControlContainer2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Đặt phòng!");}
     }
 }

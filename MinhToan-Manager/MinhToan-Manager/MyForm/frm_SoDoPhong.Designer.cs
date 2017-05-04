@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -44,6 +45,30 @@
             this.txt_TenKhachHang = new DevExpress.XtraEditors.TextEdit();
             this.cbb_TrangThai = new System.Windows.Forms.ComboBox();
             this.btn_TimKiem = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.lbl_SanSang = new DevExpress.XtraEditors.LabelControl();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbl_KhachDat = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_CoKhach = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_DenTrongNgay = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_ChuanBiDi = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_PhongDo = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_PhongHong = new DevExpress.XtraEditors.LabelControl();
+            this.dropDownButton1 = new DevExpress.XtraEditors.DropDownButton();
+            this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer(this.components);
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -59,6 +84,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.date_NgayDi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_NgayDi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TenKhachHang.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
+            this.groupControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
+            this.popupControlContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -233,11 +272,245 @@
             this.btn_TimKiem.TabIndex = 2;
             this.btn_TimKiem.Text = "Tìm kiếm";
             // 
+            // groupControl4
+            // 
+            this.groupControl4.Appearance.BackColor = System.Drawing.Color.Gold;
+            this.groupControl4.Appearance.Options.UseBackColor = true;
+            this.groupControl4.Controls.Add(this.lbl_PhongHong);
+            this.groupControl4.Controls.Add(this.lbl_PhongDo);
+            this.groupControl4.Controls.Add(this.lbl_ChuanBiDi);
+            this.groupControl4.Controls.Add(this.lbl_DenTrongNgay);
+            this.groupControl4.Controls.Add(this.lbl_CoKhach);
+            this.groupControl4.Controls.Add(this.lbl_KhachDat);
+            this.groupControl4.Controls.Add(this.lbl_SanSang);
+            this.groupControl4.Controls.Add(this.pictureBox7);
+            this.groupControl4.Controls.Add(this.pictureBox6);
+            this.groupControl4.Controls.Add(this.pictureBox3);
+            this.groupControl4.Controls.Add(this.pictureBox2);
+            this.groupControl4.Controls.Add(this.pictureBox5);
+            this.groupControl4.Controls.Add(this.pictureBox4);
+            this.groupControl4.Controls.Add(this.pictureBox1);
+            this.groupControl4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl4.Location = new System.Drawing.Point(204, 0);
+            this.groupControl4.Name = "groupControl4";
+            this.groupControl4.Size = new System.Drawing.Size(804, 67);
+            this.groupControl4.TabIndex = 1;
+            this.groupControl4.Text = "Chú thích";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.popupControlContainer2);
+            this.panelControl2.Controls.Add(this.dropDownButton1);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(204, 67);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(804, 662);
+            this.panelControl2.TabIndex = 2;
+            // 
+            // lbl_SanSang
+            // 
+            this.lbl_SanSang.Location = new System.Drawing.Point(42, 39);
+            this.lbl_SanSang.Name = "lbl_SanSang";
+            this.lbl_SanSang.Size = new System.Drawing.Size(44, 13);
+            this.lbl_SanSang.TabIndex = 1;
+            this.lbl_SanSang.Text = "Sẵn sàng";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Red;
+            this.pictureBox7.Location = new System.Drawing.Point(698, 26);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Gray;
+            this.pictureBox6.Location = new System.Drawing.Point(592, 26);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Green;
+            this.pictureBox3.Location = new System.Drawing.Point(479, 26);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.GreenYellow;
+            this.pictureBox2.Location = new System.Drawing.Point(346, 26);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Image = global::MinhToan_Manager.Properties.Resources.icon_checkin;
+            this.pictureBox5.Location = new System.Drawing.Point(121, 26);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.White;
+            this.pictureBox4.Location = new System.Drawing.Point(6, 26);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Gold;
+            this.pictureBox1.Location = new System.Drawing.Point(235, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbl_KhachDat
+            // 
+            this.lbl_KhachDat.Location = new System.Drawing.Point(157, 39);
+            this.lbl_KhachDat.Name = "lbl_KhachDat";
+            this.lbl_KhachDat.Size = new System.Drawing.Size(48, 13);
+            this.lbl_KhachDat.TabIndex = 1;
+            this.lbl_KhachDat.Text = "Khách đặt";
+            // 
+            // lbl_CoKhach
+            // 
+            this.lbl_CoKhach.Location = new System.Drawing.Point(271, 39);
+            this.lbl_CoKhach.Name = "lbl_CoKhach";
+            this.lbl_CoKhach.Size = new System.Drawing.Size(44, 13);
+            this.lbl_CoKhach.TabIndex = 1;
+            this.lbl_CoKhach.Text = "Có khách";
+            // 
+            // lbl_DenTrongNgay
+            // 
+            this.lbl_DenTrongNgay.Location = new System.Drawing.Point(382, 39);
+            this.lbl_DenTrongNgay.Name = "lbl_DenTrongNgay";
+            this.lbl_DenTrongNgay.Size = new System.Drawing.Size(76, 13);
+            this.lbl_DenTrongNgay.TabIndex = 1;
+            this.lbl_DenTrongNgay.Text = "Đến trong ngày";
+            // 
+            // lbl_ChuanBiDi
+            // 
+            this.lbl_ChuanBiDi.Location = new System.Drawing.Point(515, 39);
+            this.lbl_ChuanBiDi.Name = "lbl_ChuanBiDi";
+            this.lbl_ChuanBiDi.Size = new System.Drawing.Size(53, 13);
+            this.lbl_ChuanBiDi.TabIndex = 1;
+            this.lbl_ChuanBiDi.Text = "Chuẩn bị đi";
+            // 
+            // lbl_PhongDo
+            // 
+            this.lbl_PhongDo.Location = new System.Drawing.Point(628, 39);
+            this.lbl_PhongDo.Name = "lbl_PhongDo";
+            this.lbl_PhongDo.Size = new System.Drawing.Size(45, 13);
+            this.lbl_PhongDo.TabIndex = 1;
+            this.lbl_PhongDo.Text = "Phòng dơ";
+            // 
+            // lbl_PhongHong
+            // 
+            this.lbl_PhongHong.Location = new System.Drawing.Point(734, 39);
+            this.lbl_PhongHong.Name = "lbl_PhongHong";
+            this.lbl_PhongHong.Size = new System.Drawing.Size(57, 13);
+            this.lbl_PhongHong.TabIndex = 1;
+            this.lbl_PhongHong.Text = "Phòng hỏng";
+            // 
+            // dropDownButton1
+            // 
+            this.dropDownButton1.DropDownArrowStyle = DevExpress.XtraEditors.DropDownArrowStyle.Hide;
+            this.dropDownButton1.DropDownControl = this.popupControlContainer2;
+            this.dropDownButton1.Location = new System.Drawing.Point(42, 37);
+            this.dropDownButton1.MenuManager = this.barManager1;
+            this.dropDownButton1.Name = "dropDownButton1";
+            this.dropDownButton1.Size = new System.Drawing.Size(135, 23);
+            this.dropDownButton1.TabIndex = 1;
+            this.dropDownButton1.Text = "dropDownButton1";
+            // 
+            // popupControlContainer2
+            // 
+            this.popupControlContainer2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.popupControlContainer2.Controls.Add(this.simpleButton1);
+            this.popupControlContainer2.Location = new System.Drawing.Point(306, 272);
+            this.popupControlContainer2.Name = "popupControlContainer2";
+            this.popupControlContainer2.Size = new System.Drawing.Size(250, 156);
+            this.popupControlContainer2.TabIndex = 5;
+            this.popupControlContainer2.Visible = false;
+            this.popupControlContainer2.Paint += new System.Windows.Forms.PaintEventHandler(this.popupControlContainer2_Paint);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(138, 19);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.TabIndex = 0;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // barManager1
+            // 
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.Form = this;
+            this.barManager1.MaxItemId = 0;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(204, 67);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(804, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(204, 729);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(804, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(204, 67);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 662);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1008, 67);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 662);
+            // 
             // frm_SoDoPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
+            this.Controls.Add(this.panelControl2);
+            this.Controls.Add(this.groupControl4);
             this.Controls.Add(this.panelControl1);
             this.Name = "frm_SoDoPhong";
             this.Text = "frm_SoDoPhong";
@@ -259,7 +532,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.date_NgayDi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.date_NgayDi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_TenKhachHang.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
+            this.groupControl4.ResumeLayout(false);
+            this.groupControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).EndInit();
+            this.popupControlContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -281,5 +570,29 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.DateEdit date_ChonNgay;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.GroupControl groupControl4;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.LabelControl lbl_SanSang;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraEditors.LabelControl lbl_PhongHong;
+        private DevExpress.XtraEditors.LabelControl lbl_PhongDo;
+        private DevExpress.XtraEditors.LabelControl lbl_ChuanBiDi;
+        private DevExpress.XtraEditors.LabelControl lbl_DenTrongNgay;
+        private DevExpress.XtraEditors.LabelControl lbl_CoKhach;
+        private DevExpress.XtraEditors.LabelControl lbl_KhachDat;
+        private DevExpress.XtraBars.PopupControlContainer popupControlContainer2;
+        private DevExpress.XtraEditors.DropDownButton dropDownButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
     }
 }
