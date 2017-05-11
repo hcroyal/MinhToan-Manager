@@ -39,9 +39,6 @@ namespace MinhToan_Manager
     partial void Inserttbl_ChiTietDoan(tbl_ChiTietDoan instance);
     partial void Updatetbl_ChiTietDoan(tbl_ChiTietDoan instance);
     partial void Deletetbl_ChiTietDoan(tbl_ChiTietDoan instance);
-    partial void Inserttbl_ChiTietKhachDatPhong(tbl_ChiTietKhachDatPhong instance);
-    partial void Updatetbl_ChiTietKhachDatPhong(tbl_ChiTietKhachDatPhong instance);
-    partial void Deletetbl_ChiTietKhachDatPhong(tbl_ChiTietKhachDatPhong instance);
     partial void Inserttbl_DichVu(tbl_DichVu instance);
     partial void Updatetbl_DichVu(tbl_DichVu instance);
     partial void Deletetbl_DichVu(tbl_DichVu instance);
@@ -226,6 +223,42 @@ namespace MinhToan_Manager
 				return this.GetTable<tbl_ThongTinDichVu>();
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.proc_DatPhong")]
+		public int proc_DatPhong(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoDemKH", DbType="NVarChar(255)")] string hoDemKH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenKH", DbType="NVarChar(255)")] string tenKH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoDienThoaiKH", DbType="NVarChar(255)")] string soDienThoaiKH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(255)")] string diaChi, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="GioiTinh", DbType="NVarChar(255)")] string gioiTinh, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgaySinh", DbType="DateTime")] System.Nullable<System.DateTime> ngaySinh, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMTND", DbType="NVarChar(255)")] string cMTND, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(255)")] string email, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserTao", DbType="NVarChar(250)")] string userTao, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaPhong", DbType="Int")] System.Nullable<int> maPhong, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgayDat", DbType="DateTime")] System.Nullable<System.DateTime> ngayDat, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgayDen", DbType="DateTime")] System.Nullable<System.DateTime> ngayDen, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgayDi", DbType="DateTime")] System.Nullable<System.DateTime> ngayDi, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TrangThai", DbType="NVarChar(255)")] string trangThai, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CongTy", DbType="NVarChar(255)")] string congTy, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiLienHe", DbType="NVarChar(255)")] string nguoiLienHe, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoDienThoaiNLH", DbType="NVarChar(255)")] string soDienThoaiNLH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailNLH", DbType="NVarChar(255)")] string emailNLH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="GhiChu", DbType="NVarChar(255)")] string ghiChu, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="KhachDoan", DbType="Bit")] System.Nullable<bool> khachDoan, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDoan", DbType="NVarChar(255)")] string maDoan, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TienDatCoc", DbType="Int")] System.Nullable<int> tienDatCoc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), hoDemKH, tenKH, soDienThoaiKH, diaChi, gioiTinh, ngaySinh, cMTND, email, userTao, maPhong, ngayDat, ngayDen, ngayDi, trangThai, congTy, nguoiLienHe, soDienThoaiNLH, emailNLH, ghiChu, khachDoan, maDoan, tienDatCoc);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.proc_LoadData")]
+		public ISingleResult<proc_LoadDataResult> proc_LoadData([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaPhong", DbType="Int")] System.Nullable<int> maPhong)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maPhong);
+			return ((ISingleResult<proc_LoadDataResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Checkin")]
@@ -257,6 +290,14 @@ namespace MinhToan_Manager
 		private string _UserTao;
 		
 		private System.Nullable<System.DateTime> _NgayTao;
+		
+		private EntityRef<tbl_User> _tbl_User;
+		
+		private EntityRef<tbl_ChiTietDoan> _tbl_ChiTietDoan;
+		
+		private EntityRef<tbl_KhachHang> _tbl_KhachHang;
+		
+		private EntityRef<tbl_Phong> _tbl_Phong;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -290,6 +331,10 @@ namespace MinhToan_Manager
 		
 		public tbl_Checkin()
 		{
+			this._tbl_User = default(EntityRef<tbl_User>);
+			this._tbl_ChiTietDoan = default(EntityRef<tbl_ChiTietDoan>);
+			this._tbl_KhachHang = default(EntityRef<tbl_KhachHang>);
+			this._tbl_Phong = default(EntityRef<tbl_Phong>);
 			OnCreated();
 		}
 		
@@ -373,7 +418,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhong", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhong", DbType="Int NOT NULL")]
 		public int MaPhong
 		{
 			get
@@ -384,6 +429,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaPhong != value))
 				{
+					if (this._tbl_Phong.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaPhongChanging(value);
 					this.SendPropertyChanging();
 					this._MaPhong = value;
@@ -393,7 +442,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL")]
 		public int MaKhachHang
 		{
 			get
@@ -404,6 +453,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaKhachHang != value))
 				{
+					if (this._tbl_KhachHang.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaKhachHangChanging(value);
 					this.SendPropertyChanging();
 					this._MaKhachHang = value;
@@ -464,6 +517,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaDoan != value))
 				{
+					if (this._tbl_ChiTietDoan.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaDoanChanging(value);
 					this.SendPropertyChanging();
 					this._MaDoan = value;
@@ -504,6 +561,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._UserTao != value))
 				{
+					if (this._tbl_User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnUserTaoChanging(value);
 					this.SendPropertyChanging();
 					this._UserTao = value;
@@ -529,6 +590,142 @@ namespace MinhToan_Manager
 					this._NgayTao = value;
 					this.SendPropertyChanged("NgayTao");
 					this.OnNgayTaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_Checkin", Storage="_tbl_User", ThisKey="UserTao", OtherKey="UserName", IsForeignKey=true)]
+		public tbl_User tbl_User
+		{
+			get
+			{
+				return this._tbl_User.Entity;
+			}
+			set
+			{
+				tbl_User previousValue = this._tbl_User.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_User.Entity = null;
+						previousValue.tbl_Checkins.Remove(this);
+					}
+					this._tbl_User.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Checkins.Add(this);
+						this._UserTao = value.UserName;
+					}
+					else
+					{
+						this._UserTao = default(string);
+					}
+					this.SendPropertyChanged("tbl_User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_ChiTietDoan_tbl_Checkin", Storage="_tbl_ChiTietDoan", ThisKey="MaDoan", OtherKey="MaDoan", IsForeignKey=true)]
+		public tbl_ChiTietDoan tbl_ChiTietDoan
+		{
+			get
+			{
+				return this._tbl_ChiTietDoan.Entity;
+			}
+			set
+			{
+				tbl_ChiTietDoan previousValue = this._tbl_ChiTietDoan.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_ChiTietDoan.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_ChiTietDoan.Entity = null;
+						previousValue.tbl_Checkins.Remove(this);
+					}
+					this._tbl_ChiTietDoan.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Checkins.Add(this);
+						this._MaDoan = value.MaDoan;
+					}
+					else
+					{
+						this._MaDoan = default(string);
+					}
+					this.SendPropertyChanged("tbl_ChiTietDoan");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_Checkin", Storage="_tbl_KhachHang", ThisKey="MaKhachHang", OtherKey="MaKhachHang", IsForeignKey=true)]
+		public tbl_KhachHang tbl_KhachHang
+		{
+			get
+			{
+				return this._tbl_KhachHang.Entity;
+			}
+			set
+			{
+				tbl_KhachHang previousValue = this._tbl_KhachHang.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_KhachHang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_KhachHang.Entity = null;
+						previousValue.tbl_Checkins.Remove(this);
+					}
+					this._tbl_KhachHang.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Checkins.Add(this);
+						this._MaKhachHang = value.MaKhachHang;
+					}
+					else
+					{
+						this._MaKhachHang = default(int);
+					}
+					this.SendPropertyChanged("tbl_KhachHang");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Phong_tbl_Checkin", Storage="_tbl_Phong", ThisKey="MaPhong", OtherKey="MaPhong", IsForeignKey=true)]
+		public tbl_Phong tbl_Phong
+		{
+			get
+			{
+				return this._tbl_Phong.Entity;
+			}
+			set
+			{
+				tbl_Phong previousValue = this._tbl_Phong.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Phong.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_Phong.Entity = null;
+						previousValue.tbl_Checkins.Remove(this);
+					}
+					this._tbl_Phong.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Checkins.Add(this);
+						this._MaPhong = value.MaPhong;
+					}
+					else
+					{
+						this._MaPhong = default(int);
+					}
+					this.SendPropertyChanged("tbl_Phong");
 				}
 			}
 		}
@@ -574,6 +771,26 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private EntitySet<tbl_Checkin> _tbl_Checkins;
+		
+		private EntitySet<tbl_ChiTietDoan> _tbl_ChiTietDoans;
+		
+		private EntitySet<tbl_DichVu> _tbl_DichVus;
+		
+		private EntitySet<tbl_DoiPhong> _tbl_DoiPhongs;
+		
+		private EntitySet<tbl_KhachHang> _tbl_KhachHangs;
+		
+		private EntitySet<tbl_LoaiDichVu> _tbl_LoaiDichVus;
+		
+		private EntitySet<tbl_LoaiPhong> _tbl_LoaiPhongs;
+		
+		private EntitySet<tbl_Phong> _tbl_Phongs;
+		
+		private EntitySet<tbl_ThongTinDatPhong> _tbl_ThongTinDatPhongs;
+		
+		private EntitySet<tbl_ThongTinDatPhong> _tbl_ThongTinDatPhongs1;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -596,6 +813,16 @@ namespace MinhToan_Manager
 		
 		public tbl_User()
 		{
+			this._tbl_Checkins = new EntitySet<tbl_Checkin>(new Action<tbl_Checkin>(this.attach_tbl_Checkins), new Action<tbl_Checkin>(this.detach_tbl_Checkins));
+			this._tbl_ChiTietDoans = new EntitySet<tbl_ChiTietDoan>(new Action<tbl_ChiTietDoan>(this.attach_tbl_ChiTietDoans), new Action<tbl_ChiTietDoan>(this.detach_tbl_ChiTietDoans));
+			this._tbl_DichVus = new EntitySet<tbl_DichVu>(new Action<tbl_DichVu>(this.attach_tbl_DichVus), new Action<tbl_DichVu>(this.detach_tbl_DichVus));
+			this._tbl_DoiPhongs = new EntitySet<tbl_DoiPhong>(new Action<tbl_DoiPhong>(this.attach_tbl_DoiPhongs), new Action<tbl_DoiPhong>(this.detach_tbl_DoiPhongs));
+			this._tbl_KhachHangs = new EntitySet<tbl_KhachHang>(new Action<tbl_KhachHang>(this.attach_tbl_KhachHangs), new Action<tbl_KhachHang>(this.detach_tbl_KhachHangs));
+			this._tbl_LoaiDichVus = new EntitySet<tbl_LoaiDichVu>(new Action<tbl_LoaiDichVu>(this.attach_tbl_LoaiDichVus), new Action<tbl_LoaiDichVu>(this.detach_tbl_LoaiDichVus));
+			this._tbl_LoaiPhongs = new EntitySet<tbl_LoaiPhong>(new Action<tbl_LoaiPhong>(this.attach_tbl_LoaiPhongs), new Action<tbl_LoaiPhong>(this.detach_tbl_LoaiPhongs));
+			this._tbl_Phongs = new EntitySet<tbl_Phong>(new Action<tbl_Phong>(this.attach_tbl_Phongs), new Action<tbl_Phong>(this.detach_tbl_Phongs));
+			this._tbl_ThongTinDatPhongs = new EntitySet<tbl_ThongTinDatPhong>(new Action<tbl_ThongTinDatPhong>(this.attach_tbl_ThongTinDatPhongs), new Action<tbl_ThongTinDatPhong>(this.detach_tbl_ThongTinDatPhongs));
+			this._tbl_ThongTinDatPhongs1 = new EntitySet<tbl_ThongTinDatPhong>(new Action<tbl_ThongTinDatPhong>(this.attach_tbl_ThongTinDatPhongs1), new Action<tbl_ThongTinDatPhong>(this.detach_tbl_ThongTinDatPhongs1));
 			OnCreated();
 		}
 		
@@ -739,6 +966,136 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_Checkin", Storage="_tbl_Checkins", ThisKey="UserName", OtherKey="UserTao")]
+		public EntitySet<tbl_Checkin> tbl_Checkins
+		{
+			get
+			{
+				return this._tbl_Checkins;
+			}
+			set
+			{
+				this._tbl_Checkins.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_ChiTietDoan", Storage="_tbl_ChiTietDoans", ThisKey="UserName", OtherKey="UserTao")]
+		public EntitySet<tbl_ChiTietDoan> tbl_ChiTietDoans
+		{
+			get
+			{
+				return this._tbl_ChiTietDoans;
+			}
+			set
+			{
+				this._tbl_ChiTietDoans.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_DichVu", Storage="_tbl_DichVus", ThisKey="UserName", OtherKey="UserTao")]
+		public EntitySet<tbl_DichVu> tbl_DichVus
+		{
+			get
+			{
+				return this._tbl_DichVus;
+			}
+			set
+			{
+				this._tbl_DichVus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_DoiPhong", Storage="_tbl_DoiPhongs", ThisKey="UserName", OtherKey="UserTao")]
+		public EntitySet<tbl_DoiPhong> tbl_DoiPhongs
+		{
+			get
+			{
+				return this._tbl_DoiPhongs;
+			}
+			set
+			{
+				this._tbl_DoiPhongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_KhachHang", Storage="_tbl_KhachHangs", ThisKey="UserName", OtherKey="UserTao")]
+		public EntitySet<tbl_KhachHang> tbl_KhachHangs
+		{
+			get
+			{
+				return this._tbl_KhachHangs;
+			}
+			set
+			{
+				this._tbl_KhachHangs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_LoaiDichVu", Storage="_tbl_LoaiDichVus", ThisKey="UserName", OtherKey="UserTao")]
+		public EntitySet<tbl_LoaiDichVu> tbl_LoaiDichVus
+		{
+			get
+			{
+				return this._tbl_LoaiDichVus;
+			}
+			set
+			{
+				this._tbl_LoaiDichVus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_LoaiPhong", Storage="_tbl_LoaiPhongs", ThisKey="UserName", OtherKey="UserTao")]
+		public EntitySet<tbl_LoaiPhong> tbl_LoaiPhongs
+		{
+			get
+			{
+				return this._tbl_LoaiPhongs;
+			}
+			set
+			{
+				this._tbl_LoaiPhongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_Phong", Storage="_tbl_Phongs", ThisKey="UserName", OtherKey="UserTao")]
+		public EntitySet<tbl_Phong> tbl_Phongs
+		{
+			get
+			{
+				return this._tbl_Phongs;
+			}
+			set
+			{
+				this._tbl_Phongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_ThongTinDatPhong", Storage="_tbl_ThongTinDatPhongs", ThisKey="UserName", OtherKey="UserTao")]
+		public EntitySet<tbl_ThongTinDatPhong> tbl_ThongTinDatPhongs
+		{
+			get
+			{
+				return this._tbl_ThongTinDatPhongs;
+			}
+			set
+			{
+				this._tbl_ThongTinDatPhongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_ThongTinDatPhong1", Storage="_tbl_ThongTinDatPhongs1", ThisKey="UserName", OtherKey="UserTao")]
+		public EntitySet<tbl_ThongTinDatPhong> tbl_ThongTinDatPhongs1
+		{
+			get
+			{
+				return this._tbl_ThongTinDatPhongs1;
+			}
+			set
+			{
+				this._tbl_ThongTinDatPhongs1.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -758,6 +1115,126 @@ namespace MinhToan_Manager
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_tbl_Checkins(tbl_Checkin entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = this;
+		}
+		
+		private void detach_tbl_Checkins(tbl_Checkin entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = null;
+		}
+		
+		private void attach_tbl_ChiTietDoans(tbl_ChiTietDoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = this;
+		}
+		
+		private void detach_tbl_ChiTietDoans(tbl_ChiTietDoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = null;
+		}
+		
+		private void attach_tbl_DichVus(tbl_DichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = this;
+		}
+		
+		private void detach_tbl_DichVus(tbl_DichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = null;
+		}
+		
+		private void attach_tbl_DoiPhongs(tbl_DoiPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = this;
+		}
+		
+		private void detach_tbl_DoiPhongs(tbl_DoiPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = null;
+		}
+		
+		private void attach_tbl_KhachHangs(tbl_KhachHang entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = this;
+		}
+		
+		private void detach_tbl_KhachHangs(tbl_KhachHang entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = null;
+		}
+		
+		private void attach_tbl_LoaiDichVus(tbl_LoaiDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = this;
+		}
+		
+		private void detach_tbl_LoaiDichVus(tbl_LoaiDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = null;
+		}
+		
+		private void attach_tbl_LoaiPhongs(tbl_LoaiPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = this;
+		}
+		
+		private void detach_tbl_LoaiPhongs(tbl_LoaiPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = null;
+		}
+		
+		private void attach_tbl_Phongs(tbl_Phong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = this;
+		}
+		
+		private void detach_tbl_Phongs(tbl_Phong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = null;
+		}
+		
+		private void attach_tbl_ThongTinDatPhongs(tbl_ThongTinDatPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = this;
+		}
+		
+		private void detach_tbl_ThongTinDatPhongs(tbl_ThongTinDatPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User = null;
+		}
+		
+		private void attach_tbl_ThongTinDatPhongs1(tbl_ThongTinDatPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User1 = this;
+		}
+		
+		private void detach_tbl_ThongTinDatPhongs1(tbl_ThongTinDatPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_User1 = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_ChiTietDoan")]
@@ -775,6 +1252,14 @@ namespace MinhToan_Manager
 		private string _UserTao;
 		
 		private System.Nullable<System.DateTime> _NgayTao;
+		
+		private EntitySet<tbl_Checkin> _tbl_Checkins;
+		
+		private EntitySet<tbl_ThanhToanTienPhong> _tbl_ThanhToanTienPhongs;
+		
+		private EntityRef<tbl_User> _tbl_User;
+		
+		private EntityRef<tbl_KhachHang> _tbl_KhachHang;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -794,6 +1279,10 @@ namespace MinhToan_Manager
 		
 		public tbl_ChiTietDoan()
 		{
+			this._tbl_Checkins = new EntitySet<tbl_Checkin>(new Action<tbl_Checkin>(this.attach_tbl_Checkins), new Action<tbl_Checkin>(this.detach_tbl_Checkins));
+			this._tbl_ThanhToanTienPhongs = new EntitySet<tbl_ThanhToanTienPhong>(new Action<tbl_ThanhToanTienPhong>(this.attach_tbl_ThanhToanTienPhongs), new Action<tbl_ThanhToanTienPhong>(this.detach_tbl_ThanhToanTienPhongs));
+			this._tbl_User = default(EntityRef<tbl_User>);
+			this._tbl_KhachHang = default(EntityRef<tbl_KhachHang>);
 			OnCreated();
 		}
 		
@@ -817,7 +1306,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL")]
 		public int MaKhachHang
 		{
 			get
@@ -828,6 +1317,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaKhachHang != value))
 				{
+					if (this._tbl_KhachHang.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaKhachHangChanging(value);
 					this.SendPropertyChanging();
 					this._MaKhachHang = value;
@@ -868,6 +1361,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._UserTao != value))
 				{
+					if (this._tbl_User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnUserTaoChanging(value);
 					this.SendPropertyChanging();
 					this._UserTao = value;
@@ -897,6 +1394,100 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_ChiTietDoan_tbl_Checkin", Storage="_tbl_Checkins", ThisKey="MaDoan", OtherKey="MaDoan")]
+		public EntitySet<tbl_Checkin> tbl_Checkins
+		{
+			get
+			{
+				return this._tbl_Checkins;
+			}
+			set
+			{
+				this._tbl_Checkins.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_ChiTietDoan_tbl_ThanhToanTienPhong", Storage="_tbl_ThanhToanTienPhongs", ThisKey="MaDoan", OtherKey="MaDoan")]
+		public EntitySet<tbl_ThanhToanTienPhong> tbl_ThanhToanTienPhongs
+		{
+			get
+			{
+				return this._tbl_ThanhToanTienPhongs;
+			}
+			set
+			{
+				this._tbl_ThanhToanTienPhongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_ChiTietDoan", Storage="_tbl_User", ThisKey="UserTao", OtherKey="UserName", IsForeignKey=true)]
+		public tbl_User tbl_User
+		{
+			get
+			{
+				return this._tbl_User.Entity;
+			}
+			set
+			{
+				tbl_User previousValue = this._tbl_User.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_User.Entity = null;
+						previousValue.tbl_ChiTietDoans.Remove(this);
+					}
+					this._tbl_User.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ChiTietDoans.Add(this);
+						this._UserTao = value.UserName;
+					}
+					else
+					{
+						this._UserTao = default(string);
+					}
+					this.SendPropertyChanged("tbl_User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_ChiTietDoan", Storage="_tbl_KhachHang", ThisKey="MaKhachHang", OtherKey="MaKhachHang", IsForeignKey=true)]
+		public tbl_KhachHang tbl_KhachHang
+		{
+			get
+			{
+				return this._tbl_KhachHang.Entity;
+			}
+			set
+			{
+				tbl_KhachHang previousValue = this._tbl_KhachHang.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_KhachHang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_KhachHang.Entity = null;
+						previousValue.tbl_ChiTietDoans.Remove(this);
+					}
+					this._tbl_KhachHang.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ChiTietDoans.Add(this);
+						this._MaKhachHang = value.MaKhachHang;
+					}
+					else
+					{
+						this._MaKhachHang = default(int);
+					}
+					this.SendPropertyChanged("tbl_KhachHang");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -916,13 +1507,35 @@ namespace MinhToan_Manager
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_tbl_Checkins(tbl_Checkin entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_ChiTietDoan = this;
+		}
+		
+		private void detach_tbl_Checkins(tbl_Checkin entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_ChiTietDoan = null;
+		}
+		
+		private void attach_tbl_ThanhToanTienPhongs(tbl_ThanhToanTienPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_ChiTietDoan = this;
+		}
+		
+		private void detach_tbl_ThanhToanTienPhongs(tbl_ThanhToanTienPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_ChiTietDoan = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_ChiTietKhachDatPhong")]
-	public partial class tbl_ChiTietKhachDatPhong : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class tbl_ChiTietKhachDatPhong
 	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _MaPhong;
 		
@@ -932,26 +1545,11 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaPhongChanging(int value);
-    partial void OnMaPhongChanged();
-    partial void OnMaKhachHangChanging(int value);
-    partial void OnMaKhachHangChanged();
-    partial void OnUserTaoChanging(string value);
-    partial void OnUserTaoChanged();
-    partial void OnNgayTaoChanging(System.Nullable<System.DateTime> value);
-    partial void OnNgayTaoChanged();
-    #endregion
-		
 		public tbl_ChiTietKhachDatPhong()
 		{
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhong", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhong", DbType="Int NOT NULL")]
 		public int MaPhong
 		{
 			get
@@ -962,16 +1560,12 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaPhong != value))
 				{
-					this.OnMaPhongChanging(value);
-					this.SendPropertyChanging();
 					this._MaPhong = value;
-					this.SendPropertyChanged("MaPhong");
-					this.OnMaPhongChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL")]
 		public int MaKhachHang
 		{
 			get
@@ -982,11 +1576,7 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaKhachHang != value))
 				{
-					this.OnMaKhachHangChanging(value);
-					this.SendPropertyChanging();
 					this._MaKhachHang = value;
-					this.SendPropertyChanged("MaKhachHang");
-					this.OnMaKhachHangChanged();
 				}
 			}
 		}
@@ -1002,11 +1592,7 @@ namespace MinhToan_Manager
 			{
 				if ((this._UserTao != value))
 				{
-					this.OnUserTaoChanging(value);
-					this.SendPropertyChanging();
 					this._UserTao = value;
-					this.SendPropertyChanged("UserTao");
-					this.OnUserTaoChanged();
 				}
 			}
 		}
@@ -1022,32 +1608,8 @@ namespace MinhToan_Manager
 			{
 				if ((this._NgayTao != value))
 				{
-					this.OnNgayTaoChanging(value);
-					this.SendPropertyChanging();
 					this._NgayTao = value;
-					this.SendPropertyChanged("NgayTao");
-					this.OnNgayTaoChanged();
 				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1074,6 +1636,14 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private EntitySet<tbl_ThanhToanDichVu> _tbl_ThanhToanDichVus;
+		
+		private EntitySet<tbl_ThongTinDichVu> _tbl_ThongTinDichVus;
+		
+		private EntityRef<tbl_User> _tbl_User;
+		
+		private EntityRef<tbl_LoaiDichVu> _tbl_LoaiDichVu;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1098,6 +1668,10 @@ namespace MinhToan_Manager
 		
 		public tbl_DichVu()
 		{
+			this._tbl_ThanhToanDichVus = new EntitySet<tbl_ThanhToanDichVu>(new Action<tbl_ThanhToanDichVu>(this.attach_tbl_ThanhToanDichVus), new Action<tbl_ThanhToanDichVu>(this.detach_tbl_ThanhToanDichVus));
+			this._tbl_ThongTinDichVus = new EntitySet<tbl_ThongTinDichVu>(new Action<tbl_ThongTinDichVu>(this.attach_tbl_ThongTinDichVus), new Action<tbl_ThongTinDichVu>(this.detach_tbl_ThongTinDichVus));
+			this._tbl_User = default(EntityRef<tbl_User>);
+			this._tbl_LoaiDichVu = default(EntityRef<tbl_LoaiDichVu>);
 			OnCreated();
 		}
 		
@@ -1141,7 +1715,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiDichVu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiDichVu", DbType="Int NOT NULL")]
 		public int MaLoaiDichVu
 		{
 			get
@@ -1152,6 +1726,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaLoaiDichVu != value))
 				{
+					if (this._tbl_LoaiDichVu.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaLoaiDichVuChanging(value);
 					this.SendPropertyChanging();
 					this._MaLoaiDichVu = value;
@@ -1232,6 +1810,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._UserTao != value))
 				{
+					if (this._tbl_User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnUserTaoChanging(value);
 					this.SendPropertyChanging();
 					this._UserTao = value;
@@ -1261,6 +1843,100 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DichVu_tbl_ThanhToanDichVu", Storage="_tbl_ThanhToanDichVus", ThisKey="MaDichVu", OtherKey="MaDichVu")]
+		public EntitySet<tbl_ThanhToanDichVu> tbl_ThanhToanDichVus
+		{
+			get
+			{
+				return this._tbl_ThanhToanDichVus;
+			}
+			set
+			{
+				this._tbl_ThanhToanDichVus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DichVu_tbl_ThongTinDichVu", Storage="_tbl_ThongTinDichVus", ThisKey="MaDichVu", OtherKey="MaDichVu")]
+		public EntitySet<tbl_ThongTinDichVu> tbl_ThongTinDichVus
+		{
+			get
+			{
+				return this._tbl_ThongTinDichVus;
+			}
+			set
+			{
+				this._tbl_ThongTinDichVus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_DichVu", Storage="_tbl_User", ThisKey="UserTao", OtherKey="UserName", IsForeignKey=true)]
+		public tbl_User tbl_User
+		{
+			get
+			{
+				return this._tbl_User.Entity;
+			}
+			set
+			{
+				tbl_User previousValue = this._tbl_User.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_User.Entity = null;
+						previousValue.tbl_DichVus.Remove(this);
+					}
+					this._tbl_User.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_DichVus.Add(this);
+						this._UserTao = value.UserName;
+					}
+					else
+					{
+						this._UserTao = default(string);
+					}
+					this.SendPropertyChanged("tbl_User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_LoaiDichVu_tbl_DichVu", Storage="_tbl_LoaiDichVu", ThisKey="MaLoaiDichVu", OtherKey="MaLoaiDichVu", IsForeignKey=true)]
+		public tbl_LoaiDichVu tbl_LoaiDichVu
+		{
+			get
+			{
+				return this._tbl_LoaiDichVu.Entity;
+			}
+			set
+			{
+				tbl_LoaiDichVu previousValue = this._tbl_LoaiDichVu.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_LoaiDichVu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_LoaiDichVu.Entity = null;
+						previousValue.tbl_DichVus.Remove(this);
+					}
+					this._tbl_LoaiDichVu.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_DichVus.Add(this);
+						this._MaLoaiDichVu = value.MaLoaiDichVu;
+					}
+					else
+					{
+						this._MaLoaiDichVu = default(int);
+					}
+					this.SendPropertyChanged("tbl_LoaiDichVu");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1279,6 +1955,30 @@ namespace MinhToan_Manager
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tbl_ThanhToanDichVus(tbl_ThanhToanDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DichVu = this;
+		}
+		
+		private void detach_tbl_ThanhToanDichVus(tbl_ThanhToanDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DichVu = null;
+		}
+		
+		private void attach_tbl_ThongTinDichVus(tbl_ThongTinDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DichVu = this;
+		}
+		
+		private void detach_tbl_ThongTinDichVus(tbl_ThongTinDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DichVu = null;
 		}
 	}
 	
@@ -1306,6 +2006,12 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private EntityRef<tbl_User> _tbl_User;
+		
+		private EntityRef<tbl_KhachHang> _tbl_KhachHang;
+		
+		private EntityRef<tbl_Phong> _tbl_Phong;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1332,6 +2038,9 @@ namespace MinhToan_Manager
 		
 		public tbl_DoiPhong()
 		{
+			this._tbl_User = default(EntityRef<tbl_User>);
+			this._tbl_KhachHang = default(EntityRef<tbl_KhachHang>);
+			this._tbl_Phong = default(EntityRef<tbl_Phong>);
 			OnCreated();
 		}
 		
@@ -1355,7 +2064,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL")]
 		public int MaKhachHang
 		{
 			get
@@ -1366,6 +2075,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaKhachHang != value))
 				{
+					if (this._tbl_KhachHang.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaKhachHangChanging(value);
 					this.SendPropertyChanging();
 					this._MaKhachHang = value;
@@ -1375,7 +2088,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhong", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhong", DbType="Int NOT NULL")]
 		public int MaPhong
 		{
 			get
@@ -1386,6 +2099,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaPhong != value))
 				{
+					if (this._tbl_Phong.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaPhongChanging(value);
 					this.SendPropertyChanging();
 					this._MaPhong = value;
@@ -1486,6 +2203,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._UserTao != value))
 				{
+					if (this._tbl_User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnUserTaoChanging(value);
 					this.SendPropertyChanging();
 					this._UserTao = value;
@@ -1511,6 +2232,108 @@ namespace MinhToan_Manager
 					this._NgayTao = value;
 					this.SendPropertyChanged("NgayTao");
 					this.OnNgayTaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_DoiPhong", Storage="_tbl_User", ThisKey="UserTao", OtherKey="UserName", IsForeignKey=true)]
+		public tbl_User tbl_User
+		{
+			get
+			{
+				return this._tbl_User.Entity;
+			}
+			set
+			{
+				tbl_User previousValue = this._tbl_User.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_User.Entity = null;
+						previousValue.tbl_DoiPhongs.Remove(this);
+					}
+					this._tbl_User.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_DoiPhongs.Add(this);
+						this._UserTao = value.UserName;
+					}
+					else
+					{
+						this._UserTao = default(string);
+					}
+					this.SendPropertyChanged("tbl_User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_DoiPhong", Storage="_tbl_KhachHang", ThisKey="MaKhachHang", OtherKey="MaKhachHang", IsForeignKey=true)]
+		public tbl_KhachHang tbl_KhachHang
+		{
+			get
+			{
+				return this._tbl_KhachHang.Entity;
+			}
+			set
+			{
+				tbl_KhachHang previousValue = this._tbl_KhachHang.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_KhachHang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_KhachHang.Entity = null;
+						previousValue.tbl_DoiPhongs.Remove(this);
+					}
+					this._tbl_KhachHang.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_DoiPhongs.Add(this);
+						this._MaKhachHang = value.MaKhachHang;
+					}
+					else
+					{
+						this._MaKhachHang = default(int);
+					}
+					this.SendPropertyChanged("tbl_KhachHang");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Phong_tbl_DoiPhong", Storage="_tbl_Phong", ThisKey="MaPhong", OtherKey="MaPhong", IsForeignKey=true)]
+		public tbl_Phong tbl_Phong
+		{
+			get
+			{
+				return this._tbl_Phong.Entity;
+			}
+			set
+			{
+				tbl_Phong previousValue = this._tbl_Phong.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Phong.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_Phong.Entity = null;
+						previousValue.tbl_DoiPhongs.Remove(this);
+					}
+					this._tbl_Phong.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_DoiPhongs.Add(this);
+						this._MaPhong = value.MaPhong;
+					}
+					else
+					{
+						this._MaPhong = default(int);
+					}
+					this.SendPropertyChanged("tbl_Phong");
 				}
 			}
 		}
@@ -1544,7 +2367,9 @@ namespace MinhToan_Manager
 		
 		private int _MaKhachHang;
 		
-		private string _HoTenKH;
+		private string _HoDemKH;
+		
+		private string _TenKH;
 		
 		private string _SoDienThoai;
 		
@@ -1552,7 +2377,7 @@ namespace MinhToan_Manager
 		
 		private string _GioiTinh;
 		
-		private string _NgaySinh;
+		private System.Nullable<System.DateTime> _NgaySinh;
 		
 		private string _CMTND;
 		
@@ -1562,21 +2387,39 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private EntitySet<tbl_Checkin> _tbl_Checkins;
+		
+		private EntitySet<tbl_ChiTietDoan> _tbl_ChiTietDoans;
+		
+		private EntitySet<tbl_DoiPhong> _tbl_DoiPhongs;
+		
+		private EntitySet<tbl_ThanhToan> _tbl_ThanhToans;
+		
+		private EntitySet<tbl_ThanhToanDichVu> _tbl_ThanhToanDichVus;
+		
+		private EntitySet<tbl_ThanhToanTienPhong> _tbl_ThanhToanTienPhongs;
+		
+		private EntitySet<tbl_ThongTinDatPhong> _tbl_ThongTinDatPhongs;
+		
+		private EntityRef<tbl_User> _tbl_User;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnMaKhachHangChanging(int value);
     partial void OnMaKhachHangChanged();
-    partial void OnHoTenKHChanging(string value);
-    partial void OnHoTenKHChanged();
+    partial void OnHoDemKHChanging(string value);
+    partial void OnHoDemKHChanged();
+    partial void OnTenKHChanging(string value);
+    partial void OnTenKHChanged();
     partial void OnSoDienThoaiChanging(string value);
     partial void OnSoDienThoaiChanged();
     partial void OnDiaChiChanging(string value);
     partial void OnDiaChiChanged();
     partial void OnGioiTinhChanging(string value);
     partial void OnGioiTinhChanged();
-    partial void OnNgaySinhChanging(string value);
+    partial void OnNgaySinhChanging(System.Nullable<System.DateTime> value);
     partial void OnNgaySinhChanged();
     partial void OnCMTNDChanging(string value);
     partial void OnCMTNDChanged();
@@ -1590,6 +2433,14 @@ namespace MinhToan_Manager
 		
 		public tbl_KhachHang()
 		{
+			this._tbl_Checkins = new EntitySet<tbl_Checkin>(new Action<tbl_Checkin>(this.attach_tbl_Checkins), new Action<tbl_Checkin>(this.detach_tbl_Checkins));
+			this._tbl_ChiTietDoans = new EntitySet<tbl_ChiTietDoan>(new Action<tbl_ChiTietDoan>(this.attach_tbl_ChiTietDoans), new Action<tbl_ChiTietDoan>(this.detach_tbl_ChiTietDoans));
+			this._tbl_DoiPhongs = new EntitySet<tbl_DoiPhong>(new Action<tbl_DoiPhong>(this.attach_tbl_DoiPhongs), new Action<tbl_DoiPhong>(this.detach_tbl_DoiPhongs));
+			this._tbl_ThanhToans = new EntitySet<tbl_ThanhToan>(new Action<tbl_ThanhToan>(this.attach_tbl_ThanhToans), new Action<tbl_ThanhToan>(this.detach_tbl_ThanhToans));
+			this._tbl_ThanhToanDichVus = new EntitySet<tbl_ThanhToanDichVu>(new Action<tbl_ThanhToanDichVu>(this.attach_tbl_ThanhToanDichVus), new Action<tbl_ThanhToanDichVu>(this.detach_tbl_ThanhToanDichVus));
+			this._tbl_ThanhToanTienPhongs = new EntitySet<tbl_ThanhToanTienPhong>(new Action<tbl_ThanhToanTienPhong>(this.attach_tbl_ThanhToanTienPhongs), new Action<tbl_ThanhToanTienPhong>(this.detach_tbl_ThanhToanTienPhongs));
+			this._tbl_ThongTinDatPhongs = new EntitySet<tbl_ThongTinDatPhong>(new Action<tbl_ThongTinDatPhong>(this.attach_tbl_ThongTinDatPhongs), new Action<tbl_ThongTinDatPhong>(this.detach_tbl_ThongTinDatPhongs));
+			this._tbl_User = default(EntityRef<tbl_User>);
 			OnCreated();
 		}
 		
@@ -1613,22 +2464,42 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoTenKH", DbType="NVarChar(255)")]
-		public string HoTenKH
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoDemKH", DbType="NVarChar(255)")]
+		public string HoDemKH
 		{
 			get
 			{
-				return this._HoTenKH;
+				return this._HoDemKH;
 			}
 			set
 			{
-				if ((this._HoTenKH != value))
+				if ((this._HoDemKH != value))
 				{
-					this.OnHoTenKHChanging(value);
+					this.OnHoDemKHChanging(value);
 					this.SendPropertyChanging();
-					this._HoTenKH = value;
-					this.SendPropertyChanged("HoTenKH");
-					this.OnHoTenKHChanged();
+					this._HoDemKH = value;
+					this.SendPropertyChanged("HoDemKH");
+					this.OnHoDemKHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenKH", DbType="NVarChar(255)")]
+		public string TenKH
+		{
+			get
+			{
+				return this._TenKH;
+			}
+			set
+			{
+				if ((this._TenKH != value))
+				{
+					this.OnTenKHChanging(value);
+					this.SendPropertyChanging();
+					this._TenKH = value;
+					this.SendPropertyChanged("TenKH");
+					this.OnTenKHChanged();
 				}
 			}
 		}
@@ -1693,8 +2564,8 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgaySinh", DbType="NVarChar(255)")]
-		public string NgaySinh
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgaySinh", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgaySinh
 		{
 			get
 			{
@@ -1764,6 +2635,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._UserTao != value))
 				{
+					if (this._tbl_User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnUserTaoChanging(value);
 					this.SendPropertyChanging();
 					this._UserTao = value;
@@ -1793,6 +2668,131 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_Checkin", Storage="_tbl_Checkins", ThisKey="MaKhachHang", OtherKey="MaKhachHang")]
+		public EntitySet<tbl_Checkin> tbl_Checkins
+		{
+			get
+			{
+				return this._tbl_Checkins;
+			}
+			set
+			{
+				this._tbl_Checkins.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_ChiTietDoan", Storage="_tbl_ChiTietDoans", ThisKey="MaKhachHang", OtherKey="MaKhachHang")]
+		public EntitySet<tbl_ChiTietDoan> tbl_ChiTietDoans
+		{
+			get
+			{
+				return this._tbl_ChiTietDoans;
+			}
+			set
+			{
+				this._tbl_ChiTietDoans.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_DoiPhong", Storage="_tbl_DoiPhongs", ThisKey="MaKhachHang", OtherKey="MaKhachHang")]
+		public EntitySet<tbl_DoiPhong> tbl_DoiPhongs
+		{
+			get
+			{
+				return this._tbl_DoiPhongs;
+			}
+			set
+			{
+				this._tbl_DoiPhongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_ThanhToan", Storage="_tbl_ThanhToans", ThisKey="MaKhachHang", OtherKey="MaKhachHang")]
+		public EntitySet<tbl_ThanhToan> tbl_ThanhToans
+		{
+			get
+			{
+				return this._tbl_ThanhToans;
+			}
+			set
+			{
+				this._tbl_ThanhToans.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_ThanhToanDichVu", Storage="_tbl_ThanhToanDichVus", ThisKey="MaKhachHang", OtherKey="MaKhachHang")]
+		public EntitySet<tbl_ThanhToanDichVu> tbl_ThanhToanDichVus
+		{
+			get
+			{
+				return this._tbl_ThanhToanDichVus;
+			}
+			set
+			{
+				this._tbl_ThanhToanDichVus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_ThanhToanTienPhong", Storage="_tbl_ThanhToanTienPhongs", ThisKey="MaKhachHang", OtherKey="MaKhachHang")]
+		public EntitySet<tbl_ThanhToanTienPhong> tbl_ThanhToanTienPhongs
+		{
+			get
+			{
+				return this._tbl_ThanhToanTienPhongs;
+			}
+			set
+			{
+				this._tbl_ThanhToanTienPhongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_ThongTinDatPhong", Storage="_tbl_ThongTinDatPhongs", ThisKey="MaKhachHang", OtherKey="MaKhachHang")]
+		public EntitySet<tbl_ThongTinDatPhong> tbl_ThongTinDatPhongs
+		{
+			get
+			{
+				return this._tbl_ThongTinDatPhongs;
+			}
+			set
+			{
+				this._tbl_ThongTinDatPhongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_KhachHang", Storage="_tbl_User", ThisKey="UserTao", OtherKey="UserName", IsForeignKey=true)]
+		public tbl_User tbl_User
+		{
+			get
+			{
+				return this._tbl_User.Entity;
+			}
+			set
+			{
+				tbl_User previousValue = this._tbl_User.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_User.Entity = null;
+						previousValue.tbl_KhachHangs.Remove(this);
+					}
+					this._tbl_User.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_KhachHangs.Add(this);
+						this._UserTao = value.UserName;
+					}
+					else
+					{
+						this._UserTao = default(string);
+					}
+					this.SendPropertyChanged("tbl_User");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1812,6 +2812,90 @@ namespace MinhToan_Manager
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_tbl_Checkins(tbl_Checkin entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = this;
+		}
+		
+		private void detach_tbl_Checkins(tbl_Checkin entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = null;
+		}
+		
+		private void attach_tbl_ChiTietDoans(tbl_ChiTietDoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = this;
+		}
+		
+		private void detach_tbl_ChiTietDoans(tbl_ChiTietDoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = null;
+		}
+		
+		private void attach_tbl_DoiPhongs(tbl_DoiPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = this;
+		}
+		
+		private void detach_tbl_DoiPhongs(tbl_DoiPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = null;
+		}
+		
+		private void attach_tbl_ThanhToans(tbl_ThanhToan entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = this;
+		}
+		
+		private void detach_tbl_ThanhToans(tbl_ThanhToan entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = null;
+		}
+		
+		private void attach_tbl_ThanhToanDichVus(tbl_ThanhToanDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = this;
+		}
+		
+		private void detach_tbl_ThanhToanDichVus(tbl_ThanhToanDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = null;
+		}
+		
+		private void attach_tbl_ThanhToanTienPhongs(tbl_ThanhToanTienPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = this;
+		}
+		
+		private void detach_tbl_ThanhToanTienPhongs(tbl_ThanhToanTienPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = null;
+		}
+		
+		private void attach_tbl_ThongTinDatPhongs(tbl_ThongTinDatPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = this;
+		}
+		
+		private void detach_tbl_ThongTinDatPhongs(tbl_ThongTinDatPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_KhachHang = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_LoaiDichVu")]
@@ -1827,6 +2911,12 @@ namespace MinhToan_Manager
 		private string _UserTao;
 		
 		private System.Nullable<System.DateTime> _NgayTao;
+		
+		private EntitySet<tbl_DichVu> _tbl_DichVus;
+		
+		private EntitySet<tbl_ThongTinDichVu> _tbl_ThongTinDichVus;
+		
+		private EntityRef<tbl_User> _tbl_User;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1844,6 +2934,9 @@ namespace MinhToan_Manager
 		
 		public tbl_LoaiDichVu()
 		{
+			this._tbl_DichVus = new EntitySet<tbl_DichVu>(new Action<tbl_DichVu>(this.attach_tbl_DichVus), new Action<tbl_DichVu>(this.detach_tbl_DichVus));
+			this._tbl_ThongTinDichVus = new EntitySet<tbl_ThongTinDichVu>(new Action<tbl_ThongTinDichVu>(this.attach_tbl_ThongTinDichVus), new Action<tbl_ThongTinDichVu>(this.detach_tbl_ThongTinDichVus));
+			this._tbl_User = default(EntityRef<tbl_User>);
 			OnCreated();
 		}
 		
@@ -1898,6 +2991,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._UserTao != value))
 				{
+					if (this._tbl_User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnUserTaoChanging(value);
 					this.SendPropertyChanging();
 					this._UserTao = value;
@@ -1927,6 +3024,66 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_LoaiDichVu_tbl_DichVu", Storage="_tbl_DichVus", ThisKey="MaLoaiDichVu", OtherKey="MaLoaiDichVu")]
+		public EntitySet<tbl_DichVu> tbl_DichVus
+		{
+			get
+			{
+				return this._tbl_DichVus;
+			}
+			set
+			{
+				this._tbl_DichVus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_LoaiDichVu_tbl_ThongTinDichVu", Storage="_tbl_ThongTinDichVus", ThisKey="MaLoaiDichVu", OtherKey="MaLoaiDichVu")]
+		public EntitySet<tbl_ThongTinDichVu> tbl_ThongTinDichVus
+		{
+			get
+			{
+				return this._tbl_ThongTinDichVus;
+			}
+			set
+			{
+				this._tbl_ThongTinDichVus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_LoaiDichVu", Storage="_tbl_User", ThisKey="UserTao", OtherKey="UserName", IsForeignKey=true)]
+		public tbl_User tbl_User
+		{
+			get
+			{
+				return this._tbl_User.Entity;
+			}
+			set
+			{
+				tbl_User previousValue = this._tbl_User.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_User.Entity = null;
+						previousValue.tbl_LoaiDichVus.Remove(this);
+					}
+					this._tbl_User.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_LoaiDichVus.Add(this);
+						this._UserTao = value.UserName;
+					}
+					else
+					{
+						this._UserTao = default(string);
+					}
+					this.SendPropertyChanged("tbl_User");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1945,6 +3102,30 @@ namespace MinhToan_Manager
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tbl_DichVus(tbl_DichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_LoaiDichVu = this;
+		}
+		
+		private void detach_tbl_DichVus(tbl_DichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_LoaiDichVu = null;
+		}
+		
+		private void attach_tbl_ThongTinDichVus(tbl_ThongTinDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_LoaiDichVu = this;
+		}
+		
+		private void detach_tbl_ThongTinDichVus(tbl_ThongTinDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_LoaiDichVu = null;
 		}
 	}
 	
@@ -1966,6 +3147,10 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private EntitySet<tbl_Phong> _tbl_Phongs;
+		
+		private EntityRef<tbl_User> _tbl_User;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1986,6 +3171,8 @@ namespace MinhToan_Manager
 		
 		public tbl_LoaiPhong()
 		{
+			this._tbl_Phongs = new EntitySet<tbl_Phong>(new Action<tbl_Phong>(this.attach_tbl_Phongs), new Action<tbl_Phong>(this.detach_tbl_Phongs));
+			this._tbl_User = default(EntityRef<tbl_User>);
 			OnCreated();
 		}
 		
@@ -2080,6 +3267,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._UserTao != value))
 				{
+					if (this._tbl_User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnUserTaoChanging(value);
 					this.SendPropertyChanging();
 					this._UserTao = value;
@@ -2109,6 +3300,53 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_LoaiPhong_tbl_Phong", Storage="_tbl_Phongs", ThisKey="MaLoaiPhong", OtherKey="MaLoaiPhong")]
+		public EntitySet<tbl_Phong> tbl_Phongs
+		{
+			get
+			{
+				return this._tbl_Phongs;
+			}
+			set
+			{
+				this._tbl_Phongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_LoaiPhong", Storage="_tbl_User", ThisKey="UserTao", OtherKey="UserName", IsForeignKey=true)]
+		public tbl_User tbl_User
+		{
+			get
+			{
+				return this._tbl_User.Entity;
+			}
+			set
+			{
+				tbl_User previousValue = this._tbl_User.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_User.Entity = null;
+						previousValue.tbl_LoaiPhongs.Remove(this);
+					}
+					this._tbl_User.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_LoaiPhongs.Add(this);
+						this._UserTao = value.UserName;
+					}
+					else
+					{
+						this._UserTao = default(string);
+					}
+					this.SendPropertyChanged("tbl_User");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2127,6 +3365,18 @@ namespace MinhToan_Manager
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tbl_Phongs(tbl_Phong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_LoaiPhong = this;
+		}
+		
+		private void detach_tbl_Phongs(tbl_Phong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_LoaiPhong = null;
 		}
 	}
 	
@@ -2150,6 +3400,16 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private EntitySet<tbl_Checkin> _tbl_Checkins;
+		
+		private EntitySet<tbl_DoiPhong> _tbl_DoiPhongs;
+		
+		private EntitySet<tbl_ThongTinDatPhong> _tbl_ThongTinDatPhongs;
+		
+		private EntityRef<tbl_LoaiPhong> _tbl_LoaiPhong;
+		
+		private EntityRef<tbl_User> _tbl_User;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2172,6 +3432,11 @@ namespace MinhToan_Manager
 		
 		public tbl_Phong()
 		{
+			this._tbl_Checkins = new EntitySet<tbl_Checkin>(new Action<tbl_Checkin>(this.attach_tbl_Checkins), new Action<tbl_Checkin>(this.detach_tbl_Checkins));
+			this._tbl_DoiPhongs = new EntitySet<tbl_DoiPhong>(new Action<tbl_DoiPhong>(this.attach_tbl_DoiPhongs), new Action<tbl_DoiPhong>(this.detach_tbl_DoiPhongs));
+			this._tbl_ThongTinDatPhongs = new EntitySet<tbl_ThongTinDatPhong>(new Action<tbl_ThongTinDatPhong>(this.attach_tbl_ThongTinDatPhongs), new Action<tbl_ThongTinDatPhong>(this.detach_tbl_ThongTinDatPhongs));
+			this._tbl_LoaiPhong = default(EntityRef<tbl_LoaiPhong>);
+			this._tbl_User = default(EntityRef<tbl_User>);
 			OnCreated();
 		}
 		
@@ -2255,7 +3520,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiPhong", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiPhong", DbType="Int NOT NULL")]
 		public int MaLoaiPhong
 		{
 			get
@@ -2266,6 +3531,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaLoaiPhong != value))
 				{
+					if (this._tbl_LoaiPhong.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaLoaiPhongChanging(value);
 					this.SendPropertyChanging();
 					this._MaLoaiPhong = value;
@@ -2286,6 +3555,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._UserTao != value))
 				{
+					if (this._tbl_User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnUserTaoChanging(value);
 					this.SendPropertyChanging();
 					this._UserTao = value;
@@ -2315,6 +3588,113 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Phong_tbl_Checkin", Storage="_tbl_Checkins", ThisKey="MaPhong", OtherKey="MaPhong")]
+		public EntitySet<tbl_Checkin> tbl_Checkins
+		{
+			get
+			{
+				return this._tbl_Checkins;
+			}
+			set
+			{
+				this._tbl_Checkins.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Phong_tbl_DoiPhong", Storage="_tbl_DoiPhongs", ThisKey="MaPhong", OtherKey="MaPhong")]
+		public EntitySet<tbl_DoiPhong> tbl_DoiPhongs
+		{
+			get
+			{
+				return this._tbl_DoiPhongs;
+			}
+			set
+			{
+				this._tbl_DoiPhongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Phong_tbl_ThongTinDatPhong", Storage="_tbl_ThongTinDatPhongs", ThisKey="MaPhong", OtherKey="MaPhong")]
+		public EntitySet<tbl_ThongTinDatPhong> tbl_ThongTinDatPhongs
+		{
+			get
+			{
+				return this._tbl_ThongTinDatPhongs;
+			}
+			set
+			{
+				this._tbl_ThongTinDatPhongs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_LoaiPhong_tbl_Phong", Storage="_tbl_LoaiPhong", ThisKey="MaLoaiPhong", OtherKey="MaLoaiPhong", IsForeignKey=true)]
+		public tbl_LoaiPhong tbl_LoaiPhong
+		{
+			get
+			{
+				return this._tbl_LoaiPhong.Entity;
+			}
+			set
+			{
+				tbl_LoaiPhong previousValue = this._tbl_LoaiPhong.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_LoaiPhong.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_LoaiPhong.Entity = null;
+						previousValue.tbl_Phongs.Remove(this);
+					}
+					this._tbl_LoaiPhong.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Phongs.Add(this);
+						this._MaLoaiPhong = value.MaLoaiPhong;
+					}
+					else
+					{
+						this._MaLoaiPhong = default(int);
+					}
+					this.SendPropertyChanged("tbl_LoaiPhong");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_Phong", Storage="_tbl_User", ThisKey="UserTao", OtherKey="UserName", IsForeignKey=true)]
+		public tbl_User tbl_User
+		{
+			get
+			{
+				return this._tbl_User.Entity;
+			}
+			set
+			{
+				tbl_User previousValue = this._tbl_User.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_User.Entity = null;
+						previousValue.tbl_Phongs.Remove(this);
+					}
+					this._tbl_User.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_Phongs.Add(this);
+						this._UserTao = value.UserName;
+					}
+					else
+					{
+						this._UserTao = default(string);
+					}
+					this.SendPropertyChanged("tbl_User");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2333,6 +3713,42 @@ namespace MinhToan_Manager
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tbl_Checkins(tbl_Checkin entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Phong = this;
+		}
+		
+		private void detach_tbl_Checkins(tbl_Checkin entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Phong = null;
+		}
+		
+		private void attach_tbl_DoiPhongs(tbl_DoiPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Phong = this;
+		}
+		
+		private void detach_tbl_DoiPhongs(tbl_DoiPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Phong = null;
+		}
+		
+		private void attach_tbl_ThongTinDatPhongs(tbl_ThongTinDatPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Phong = this;
+		}
+		
+		private void detach_tbl_ThongTinDatPhongs(tbl_ThongTinDatPhong entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_Phong = null;
 		}
 	}
 	
@@ -2362,6 +3778,12 @@ namespace MinhToan_Manager
 		
 		private string _UserTao;
 		
+		private EntityRef<tbl_KhachHang> _tbl_KhachHang;
+		
+		private EntityRef<tbl_ThanhToanDichVu> _tbl_ThanhToanDichVu;
+		
+		private EntityRef<tbl_ThanhToanTienPhong> _tbl_ThanhToanTienPhong;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2390,6 +3812,9 @@ namespace MinhToan_Manager
 		
 		public tbl_ThanhToan()
 		{
+			this._tbl_KhachHang = default(EntityRef<tbl_KhachHang>);
+			this._tbl_ThanhToanDichVu = default(EntityRef<tbl_ThanhToanDichVu>);
+			this._tbl_ThanhToanTienPhong = default(EntityRef<tbl_ThanhToanTienPhong>);
 			OnCreated();
 		}
 		
@@ -2413,7 +3838,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL")]
 		public int MaKhachHang
 		{
 			get
@@ -2424,6 +3849,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaKhachHang != value))
 				{
+					if (this._tbl_KhachHang.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaKhachHangChanging(value);
 					this.SendPropertyChanging();
 					this._MaKhachHang = value;
@@ -2453,7 +3882,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaThanhToanTienPhong", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaThanhToanTienPhong", DbType="Int NOT NULL")]
 		public int MaThanhToanTienPhong
 		{
 			get
@@ -2464,6 +3893,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaThanhToanTienPhong != value))
 				{
+					if (this._tbl_ThanhToanTienPhong.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaThanhToanTienPhongChanging(value);
 					this.SendPropertyChanging();
 					this._MaThanhToanTienPhong = value;
@@ -2473,7 +3906,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaThanhToanDichVu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaThanhToanDichVu", DbType="Int NOT NULL")]
 		public int MaThanhToanDichVu
 		{
 			get
@@ -2484,6 +3917,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaThanhToanDichVu != value))
 				{
+					if (this._tbl_ThanhToanDichVu.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaThanhToanDichVuChanging(value);
 					this.SendPropertyChanging();
 					this._MaThanhToanDichVu = value;
@@ -2593,6 +4030,108 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_ThanhToan", Storage="_tbl_KhachHang", ThisKey="MaKhachHang", OtherKey="MaKhachHang", IsForeignKey=true)]
+		public tbl_KhachHang tbl_KhachHang
+		{
+			get
+			{
+				return this._tbl_KhachHang.Entity;
+			}
+			set
+			{
+				tbl_KhachHang previousValue = this._tbl_KhachHang.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_KhachHang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_KhachHang.Entity = null;
+						previousValue.tbl_ThanhToans.Remove(this);
+					}
+					this._tbl_KhachHang.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThanhToans.Add(this);
+						this._MaKhachHang = value.MaKhachHang;
+					}
+					else
+					{
+						this._MaKhachHang = default(int);
+					}
+					this.SendPropertyChanged("tbl_KhachHang");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_ThanhToanDichVu_tbl_ThanhToan", Storage="_tbl_ThanhToanDichVu", ThisKey="MaThanhToanDichVu", OtherKey="MaThanhToanDichVu", IsForeignKey=true)]
+		public tbl_ThanhToanDichVu tbl_ThanhToanDichVu
+		{
+			get
+			{
+				return this._tbl_ThanhToanDichVu.Entity;
+			}
+			set
+			{
+				tbl_ThanhToanDichVu previousValue = this._tbl_ThanhToanDichVu.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_ThanhToanDichVu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_ThanhToanDichVu.Entity = null;
+						previousValue.tbl_ThanhToans.Remove(this);
+					}
+					this._tbl_ThanhToanDichVu.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThanhToans.Add(this);
+						this._MaThanhToanDichVu = value.MaThanhToanDichVu;
+					}
+					else
+					{
+						this._MaThanhToanDichVu = default(int);
+					}
+					this.SendPropertyChanged("tbl_ThanhToanDichVu");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_ThanhToanTienPhong_tbl_ThanhToan", Storage="_tbl_ThanhToanTienPhong", ThisKey="MaThanhToanTienPhong", OtherKey="MaThanhToanTienPhong", IsForeignKey=true)]
+		public tbl_ThanhToanTienPhong tbl_ThanhToanTienPhong
+		{
+			get
+			{
+				return this._tbl_ThanhToanTienPhong.Entity;
+			}
+			set
+			{
+				tbl_ThanhToanTienPhong previousValue = this._tbl_ThanhToanTienPhong.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_ThanhToanTienPhong.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_ThanhToanTienPhong.Entity = null;
+						previousValue.tbl_ThanhToans.Remove(this);
+					}
+					this._tbl_ThanhToanTienPhong.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThanhToans.Add(this);
+						this._MaThanhToanTienPhong = value.MaThanhToanTienPhong;
+					}
+					else
+					{
+						this._MaThanhToanTienPhong = default(int);
+					}
+					this.SendPropertyChanged("tbl_ThanhToanTienPhong");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2624,7 +4163,7 @@ namespace MinhToan_Manager
 		
 		private int _MaKhachHang;
 		
-		private int _MaThongTinDichVu;
+		private int _MaDichVu;
 		
 		private System.Nullable<int> _SoLuong;
 		
@@ -2638,6 +4177,14 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private EntitySet<tbl_ThanhToan> _tbl_ThanhToans;
+		
+		private EntityRef<tbl_DichVu> _tbl_DichVu;
+		
+		private EntityRef<tbl_KhachHang> _tbl_KhachHang;
+		
+		private EntityRef<tbl_ThongTinDichVu> _tbl_ThongTinDichVu;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2646,8 +4193,8 @@ namespace MinhToan_Manager
     partial void OnMaThanhToanDichVuChanged();
     partial void OnMaKhachHangChanging(int value);
     partial void OnMaKhachHangChanged();
-    partial void OnMaThongTinDichVuChanging(int value);
-    partial void OnMaThongTinDichVuChanged();
+    partial void OnMaDichVuChanging(int value);
+    partial void OnMaDichVuChanged();
     partial void OnSoLuongChanging(System.Nullable<int> value);
     partial void OnSoLuongChanged();
     partial void OnNgaySuDungChanging(System.Nullable<System.DateTime> value);
@@ -2664,6 +4211,10 @@ namespace MinhToan_Manager
 		
 		public tbl_ThanhToanDichVu()
 		{
+			this._tbl_ThanhToans = new EntitySet<tbl_ThanhToan>(new Action<tbl_ThanhToan>(this.attach_tbl_ThanhToans), new Action<tbl_ThanhToan>(this.detach_tbl_ThanhToans));
+			this._tbl_DichVu = default(EntityRef<tbl_DichVu>);
+			this._tbl_KhachHang = default(EntityRef<tbl_KhachHang>);
+			this._tbl_ThongTinDichVu = default(EntityRef<tbl_ThongTinDichVu>);
 			OnCreated();
 		}
 		
@@ -2687,7 +4238,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL")]
 		public int MaKhachHang
 		{
 			get
@@ -2698,6 +4249,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaKhachHang != value))
 				{
+					if (this._tbl_KhachHang.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaKhachHangChanging(value);
 					this.SendPropertyChanging();
 					this._MaKhachHang = value;
@@ -2707,22 +4262,26 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaThongTinDichVu", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaThongTinDichVu
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDichVu", DbType="Int NOT NULL")]
+		public int MaDichVu
 		{
 			get
 			{
-				return this._MaThongTinDichVu;
+				return this._MaDichVu;
 			}
 			set
 			{
-				if ((this._MaThongTinDichVu != value))
+				if ((this._MaDichVu != value))
 				{
-					this.OnMaThongTinDichVuChanging(value);
+					if ((this._tbl_DichVu.HasLoadedOrAssignedValue || this._tbl_ThongTinDichVu.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaDichVuChanging(value);
 					this.SendPropertyChanging();
-					this._MaThongTinDichVu = value;
-					this.SendPropertyChanged("MaThongTinDichVu");
-					this.OnMaThongTinDichVuChanged();
+					this._MaDichVu = value;
+					this.SendPropertyChanged("MaDichVu");
+					this.OnMaDichVuChanged();
 				}
 			}
 		}
@@ -2847,6 +4406,121 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_ThanhToanDichVu_tbl_ThanhToan", Storage="_tbl_ThanhToans", ThisKey="MaThanhToanDichVu", OtherKey="MaThanhToanDichVu")]
+		public EntitySet<tbl_ThanhToan> tbl_ThanhToans
+		{
+			get
+			{
+				return this._tbl_ThanhToans;
+			}
+			set
+			{
+				this._tbl_ThanhToans.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DichVu_tbl_ThanhToanDichVu", Storage="_tbl_DichVu", ThisKey="MaDichVu", OtherKey="MaDichVu", IsForeignKey=true)]
+		public tbl_DichVu tbl_DichVu
+		{
+			get
+			{
+				return this._tbl_DichVu.Entity;
+			}
+			set
+			{
+				tbl_DichVu previousValue = this._tbl_DichVu.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_DichVu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_DichVu.Entity = null;
+						previousValue.tbl_ThanhToanDichVus.Remove(this);
+					}
+					this._tbl_DichVu.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThanhToanDichVus.Add(this);
+						this._MaDichVu = value.MaDichVu;
+					}
+					else
+					{
+						this._MaDichVu = default(int);
+					}
+					this.SendPropertyChanged("tbl_DichVu");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_ThanhToanDichVu", Storage="_tbl_KhachHang", ThisKey="MaKhachHang", OtherKey="MaKhachHang", IsForeignKey=true)]
+		public tbl_KhachHang tbl_KhachHang
+		{
+			get
+			{
+				return this._tbl_KhachHang.Entity;
+			}
+			set
+			{
+				tbl_KhachHang previousValue = this._tbl_KhachHang.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_KhachHang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_KhachHang.Entity = null;
+						previousValue.tbl_ThanhToanDichVus.Remove(this);
+					}
+					this._tbl_KhachHang.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThanhToanDichVus.Add(this);
+						this._MaKhachHang = value.MaKhachHang;
+					}
+					else
+					{
+						this._MaKhachHang = default(int);
+					}
+					this.SendPropertyChanged("tbl_KhachHang");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_ThongTinDichVu_tbl_ThanhToanDichVu", Storage="_tbl_ThongTinDichVu", ThisKey="MaDichVu", OtherKey="MaThongTinDichVu", IsForeignKey=true)]
+		public tbl_ThongTinDichVu tbl_ThongTinDichVu
+		{
+			get
+			{
+				return this._tbl_ThongTinDichVu.Entity;
+			}
+			set
+			{
+				tbl_ThongTinDichVu previousValue = this._tbl_ThongTinDichVu.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_ThongTinDichVu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_ThongTinDichVu.Entity = null;
+						previousValue.tbl_ThanhToanDichVus.Remove(this);
+					}
+					this._tbl_ThongTinDichVu.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThanhToanDichVus.Add(this);
+						this._MaDichVu = value.MaThongTinDichVu;
+					}
+					else
+					{
+						this._MaDichVu = default(int);
+					}
+					this.SendPropertyChanged("tbl_ThongTinDichVu");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2865,6 +4539,18 @@ namespace MinhToan_Manager
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tbl_ThanhToans(tbl_ThanhToan entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_ThanhToanDichVu = this;
+		}
+		
+		private void detach_tbl_ThanhToans(tbl_ThanhToan entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_ThanhToanDichVu = null;
 		}
 	}
 	
@@ -2890,6 +4576,12 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private EntitySet<tbl_ThanhToan> _tbl_ThanhToans;
+		
+		private EntityRef<tbl_ChiTietDoan> _tbl_ChiTietDoan;
+		
+		private EntityRef<tbl_KhachHang> _tbl_KhachHang;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2914,6 +4606,9 @@ namespace MinhToan_Manager
 		
 		public tbl_ThanhToanTienPhong()
 		{
+			this._tbl_ThanhToans = new EntitySet<tbl_ThanhToan>(new Action<tbl_ThanhToan>(this.attach_tbl_ThanhToans), new Action<tbl_ThanhToan>(this.detach_tbl_ThanhToans));
+			this._tbl_ChiTietDoan = default(EntityRef<tbl_ChiTietDoan>);
+			this._tbl_KhachHang = default(EntityRef<tbl_KhachHang>);
 			OnCreated();
 		}
 		
@@ -2937,7 +4632,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL")]
 		public int MaKhachHang
 		{
 			get
@@ -2948,6 +4643,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaKhachHang != value))
 				{
+					if (this._tbl_KhachHang.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaKhachHangChanging(value);
 					this.SendPropertyChanging();
 					this._MaKhachHang = value;
@@ -2968,6 +4667,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaDoan != value))
 				{
+					if (this._tbl_ChiTietDoan.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaDoanChanging(value);
 					this.SendPropertyChanging();
 					this._MaDoan = value;
@@ -3077,6 +4780,87 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_ThanhToanTienPhong_tbl_ThanhToan", Storage="_tbl_ThanhToans", ThisKey="MaThanhToanTienPhong", OtherKey="MaThanhToanTienPhong")]
+		public EntitySet<tbl_ThanhToan> tbl_ThanhToans
+		{
+			get
+			{
+				return this._tbl_ThanhToans;
+			}
+			set
+			{
+				this._tbl_ThanhToans.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_ChiTietDoan_tbl_ThanhToanTienPhong", Storage="_tbl_ChiTietDoan", ThisKey="MaDoan", OtherKey="MaDoan", IsForeignKey=true)]
+		public tbl_ChiTietDoan tbl_ChiTietDoan
+		{
+			get
+			{
+				return this._tbl_ChiTietDoan.Entity;
+			}
+			set
+			{
+				tbl_ChiTietDoan previousValue = this._tbl_ChiTietDoan.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_ChiTietDoan.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_ChiTietDoan.Entity = null;
+						previousValue.tbl_ThanhToanTienPhongs.Remove(this);
+					}
+					this._tbl_ChiTietDoan.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThanhToanTienPhongs.Add(this);
+						this._MaDoan = value.MaDoan;
+					}
+					else
+					{
+						this._MaDoan = default(string);
+					}
+					this.SendPropertyChanged("tbl_ChiTietDoan");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_ThanhToanTienPhong", Storage="_tbl_KhachHang", ThisKey="MaKhachHang", OtherKey="MaKhachHang", IsForeignKey=true)]
+		public tbl_KhachHang tbl_KhachHang
+		{
+			get
+			{
+				return this._tbl_KhachHang.Entity;
+			}
+			set
+			{
+				tbl_KhachHang previousValue = this._tbl_KhachHang.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_KhachHang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_KhachHang.Entity = null;
+						previousValue.tbl_ThanhToanTienPhongs.Remove(this);
+					}
+					this._tbl_KhachHang.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThanhToanTienPhongs.Add(this);
+						this._MaKhachHang = value.MaKhachHang;
+					}
+					else
+					{
+						this._MaKhachHang = default(int);
+					}
+					this.SendPropertyChanged("tbl_KhachHang");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3095,6 +4879,18 @@ namespace MinhToan_Manager
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tbl_ThanhToans(tbl_ThanhToan entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_ThanhToanTienPhong = this;
+		}
+		
+		private void detach_tbl_ThanhToans(tbl_ThanhToan entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_ThanhToanTienPhong = null;
 		}
 	}
 	
@@ -3116,7 +4912,7 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayDi;
 		
-		private System.Nullable<bool> _TrangThai;
+		private string _TrangThai;
 		
 		private string _CongTy;
 		
@@ -3138,6 +4934,14 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private EntityRef<tbl_KhachHang> _tbl_KhachHang;
+		
+		private EntityRef<tbl_Phong> _tbl_Phong;
+		
+		private EntityRef<tbl_User> _tbl_User;
+		
+		private EntityRef<tbl_User> _tbl_User1;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3154,7 +4958,7 @@ namespace MinhToan_Manager
     partial void OnNgayDenChanged();
     partial void OnNgayDiChanging(System.Nullable<System.DateTime> value);
     partial void OnNgayDiChanged();
-    partial void OnTrangThaiChanging(System.Nullable<bool> value);
+    partial void OnTrangThaiChanging(string value);
     partial void OnTrangThaiChanged();
     partial void OnCongTyChanging(string value);
     partial void OnCongTyChanged();
@@ -3180,6 +4984,10 @@ namespace MinhToan_Manager
 		
 		public tbl_ThongTinDatPhong()
 		{
+			this._tbl_KhachHang = default(EntityRef<tbl_KhachHang>);
+			this._tbl_Phong = default(EntityRef<tbl_Phong>);
+			this._tbl_User = default(EntityRef<tbl_User>);
+			this._tbl_User1 = default(EntityRef<tbl_User>);
 			OnCreated();
 		}
 		
@@ -3203,7 +5011,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="Int NOT NULL")]
 		public int MaKhachHang
 		{
 			get
@@ -3214,6 +5022,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaKhachHang != value))
 				{
+					if (this._tbl_KhachHang.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaKhachHangChanging(value);
 					this.SendPropertyChanging();
 					this._MaKhachHang = value;
@@ -3223,7 +5035,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhong", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaPhong", DbType="Int NOT NULL")]
 		public int MaPhong
 		{
 			get
@@ -3234,6 +5046,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaPhong != value))
 				{
+					if (this._tbl_Phong.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaPhongChanging(value);
 					this.SendPropertyChanging();
 					this._MaPhong = value;
@@ -3303,8 +5119,8 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrangThai", DbType="Bit")]
-		public System.Nullable<bool> TrangThai
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrangThai", DbType="NVarChar(255)")]
+		public string TrangThai
 		{
 			get
 			{
@@ -3494,6 +5310,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._UserTao != value))
 				{
+					if ((this._tbl_User.HasLoadedOrAssignedValue || this._tbl_User1.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnUserTaoChanging(value);
 					this.SendPropertyChanging();
 					this._UserTao = value;
@@ -3519,6 +5339,142 @@ namespace MinhToan_Manager
 					this._NgayTao = value;
 					this.SendPropertyChanged("NgayTao");
 					this.OnNgayTaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_KhachHang_tbl_ThongTinDatPhong", Storage="_tbl_KhachHang", ThisKey="MaKhachHang", OtherKey="MaKhachHang", IsForeignKey=true)]
+		public tbl_KhachHang tbl_KhachHang
+		{
+			get
+			{
+				return this._tbl_KhachHang.Entity;
+			}
+			set
+			{
+				tbl_KhachHang previousValue = this._tbl_KhachHang.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_KhachHang.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_KhachHang.Entity = null;
+						previousValue.tbl_ThongTinDatPhongs.Remove(this);
+					}
+					this._tbl_KhachHang.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThongTinDatPhongs.Add(this);
+						this._MaKhachHang = value.MaKhachHang;
+					}
+					else
+					{
+						this._MaKhachHang = default(int);
+					}
+					this.SendPropertyChanged("tbl_KhachHang");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_Phong_tbl_ThongTinDatPhong", Storage="_tbl_Phong", ThisKey="MaPhong", OtherKey="MaPhong", IsForeignKey=true)]
+		public tbl_Phong tbl_Phong
+		{
+			get
+			{
+				return this._tbl_Phong.Entity;
+			}
+			set
+			{
+				tbl_Phong previousValue = this._tbl_Phong.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_Phong.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_Phong.Entity = null;
+						previousValue.tbl_ThongTinDatPhongs.Remove(this);
+					}
+					this._tbl_Phong.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThongTinDatPhongs.Add(this);
+						this._MaPhong = value.MaPhong;
+					}
+					else
+					{
+						this._MaPhong = default(int);
+					}
+					this.SendPropertyChanged("tbl_Phong");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_ThongTinDatPhong", Storage="_tbl_User", ThisKey="UserTao", OtherKey="UserName", IsForeignKey=true)]
+		public tbl_User tbl_User
+		{
+			get
+			{
+				return this._tbl_User.Entity;
+			}
+			set
+			{
+				tbl_User previousValue = this._tbl_User.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_User.Entity = null;
+						previousValue.tbl_ThongTinDatPhongs.Remove(this);
+					}
+					this._tbl_User.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThongTinDatPhongs.Add(this);
+						this._UserTao = value.UserName;
+					}
+					else
+					{
+						this._UserTao = default(string);
+					}
+					this.SendPropertyChanged("tbl_User");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_User_tbl_ThongTinDatPhong1", Storage="_tbl_User1", ThisKey="UserTao", OtherKey="UserName", IsForeignKey=true)]
+		public tbl_User tbl_User1
+		{
+			get
+			{
+				return this._tbl_User1.Entity;
+			}
+			set
+			{
+				tbl_User previousValue = this._tbl_User1.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_User1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_User1.Entity = null;
+						previousValue.tbl_ThongTinDatPhongs1.Remove(this);
+					}
+					this._tbl_User1.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThongTinDatPhongs1.Add(this);
+						this._UserTao = value.UserName;
+					}
+					else
+					{
+						this._UserTao = default(string);
+					}
+					this.SendPropertyChanged("tbl_User1");
 				}
 			}
 		}
@@ -3568,6 +5524,12 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private EntitySet<tbl_ThanhToanDichVu> _tbl_ThanhToanDichVus;
+		
+		private EntityRef<tbl_DichVu> _tbl_DichVu;
+		
+		private EntityRef<tbl_LoaiDichVu> _tbl_LoaiDichVu;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3594,6 +5556,9 @@ namespace MinhToan_Manager
 		
 		public tbl_ThongTinDichVu()
 		{
+			this._tbl_ThanhToanDichVus = new EntitySet<tbl_ThanhToanDichVu>(new Action<tbl_ThanhToanDichVu>(this.attach_tbl_ThanhToanDichVus), new Action<tbl_ThanhToanDichVu>(this.detach_tbl_ThanhToanDichVus));
+			this._tbl_DichVu = default(EntityRef<tbl_DichVu>);
+			this._tbl_LoaiDichVu = default(EntityRef<tbl_LoaiDichVu>);
 			OnCreated();
 		}
 		
@@ -3617,7 +5582,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDichVu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDichVu", DbType="Int NOT NULL")]
 		public int MaDichVu
 		{
 			get
@@ -3628,6 +5593,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaDichVu != value))
 				{
+					if (this._tbl_DichVu.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaDichVuChanging(value);
 					this.SendPropertyChanging();
 					this._MaDichVu = value;
@@ -3657,7 +5626,7 @@ namespace MinhToan_Manager
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiDichVu", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaLoaiDichVu", DbType="Int NOT NULL")]
 		public int MaLoaiDichVu
 		{
 			get
@@ -3668,6 +5637,10 @@ namespace MinhToan_Manager
 			{
 				if ((this._MaLoaiDichVu != value))
 				{
+					if (this._tbl_LoaiDichVu.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaLoaiDichVuChanging(value);
 					this.SendPropertyChanging();
 					this._MaLoaiDichVu = value;
@@ -3777,6 +5750,87 @@ namespace MinhToan_Manager
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_ThongTinDichVu_tbl_ThanhToanDichVu", Storage="_tbl_ThanhToanDichVus", ThisKey="MaThongTinDichVu", OtherKey="MaDichVu")]
+		public EntitySet<tbl_ThanhToanDichVu> tbl_ThanhToanDichVus
+		{
+			get
+			{
+				return this._tbl_ThanhToanDichVus;
+			}
+			set
+			{
+				this._tbl_ThanhToanDichVus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DichVu_tbl_ThongTinDichVu", Storage="_tbl_DichVu", ThisKey="MaDichVu", OtherKey="MaDichVu", IsForeignKey=true)]
+		public tbl_DichVu tbl_DichVu
+		{
+			get
+			{
+				return this._tbl_DichVu.Entity;
+			}
+			set
+			{
+				tbl_DichVu previousValue = this._tbl_DichVu.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_DichVu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_DichVu.Entity = null;
+						previousValue.tbl_ThongTinDichVus.Remove(this);
+					}
+					this._tbl_DichVu.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThongTinDichVus.Add(this);
+						this._MaDichVu = value.MaDichVu;
+					}
+					else
+					{
+						this._MaDichVu = default(int);
+					}
+					this.SendPropertyChanged("tbl_DichVu");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_LoaiDichVu_tbl_ThongTinDichVu", Storage="_tbl_LoaiDichVu", ThisKey="MaLoaiDichVu", OtherKey="MaLoaiDichVu", IsForeignKey=true)]
+		public tbl_LoaiDichVu tbl_LoaiDichVu
+		{
+			get
+			{
+				return this._tbl_LoaiDichVu.Entity;
+			}
+			set
+			{
+				tbl_LoaiDichVu previousValue = this._tbl_LoaiDichVu.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_LoaiDichVu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_LoaiDichVu.Entity = null;
+						previousValue.tbl_ThongTinDichVus.Remove(this);
+					}
+					this._tbl_LoaiDichVu.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_ThongTinDichVus.Add(this);
+						this._MaLoaiDichVu = value.MaLoaiDichVu;
+					}
+					else
+					{
+						this._MaLoaiDichVu = default(int);
+					}
+					this.SendPropertyChanged("tbl_LoaiDichVu");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3794,6 +5848,206 @@ namespace MinhToan_Manager
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbl_ThanhToanDichVus(tbl_ThanhToanDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_ThongTinDichVu = this;
+		}
+		
+		private void detach_tbl_ThanhToanDichVus(tbl_ThanhToanDichVu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_ThongTinDichVu = null;
+		}
+	}
+	
+	public partial class proc_LoadDataResult
+	{
+		
+		private string _HoDemKH;
+		
+		private string _TenKH;
+		
+		private string _GioiTinh;
+		
+		private System.Nullable<System.DateTime> _NgaySinh;
+		
+		private string _SoDienThoai;
+		
+		private string _Email;
+		
+		private string _DiaChi;
+		
+		private string _CMTND;
+		
+		private System.Nullable<System.DateTime> _NgayDen;
+		
+		private System.Nullable<System.DateTime> _NgayDi;
+		
+		public proc_LoadDataResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoDemKH", DbType="NVarChar(255)")]
+		public string HoDemKH
+		{
+			get
+			{
+				return this._HoDemKH;
+			}
+			set
+			{
+				if ((this._HoDemKH != value))
+				{
+					this._HoDemKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenKH", DbType="NVarChar(255)")]
+		public string TenKH
+		{
+			get
+			{
+				return this._TenKH;
+			}
+			set
+			{
+				if ((this._TenKH != value))
+				{
+					this._TenKH = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GioiTinh", DbType="NVarChar(255)")]
+		public string GioiTinh
+		{
+			get
+			{
+				return this._GioiTinh;
+			}
+			set
+			{
+				if ((this._GioiTinh != value))
+				{
+					this._GioiTinh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgaySinh", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgaySinh
+		{
+			get
+			{
+				return this._NgaySinh;
+			}
+			set
+			{
+				if ((this._NgaySinh != value))
+				{
+					this._NgaySinh = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDienThoai", DbType="NVarChar(255)")]
+		public string SoDienThoai
+		{
+			get
+			{
+				return this._SoDienThoai;
+			}
+			set
+			{
+				if ((this._SoDienThoai != value))
+				{
+					this._SoDienThoai = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(255)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(255)")]
+		public string DiaChi
+		{
+			get
+			{
+				return this._DiaChi;
+			}
+			set
+			{
+				if ((this._DiaChi != value))
+				{
+					this._DiaChi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMTND", DbType="NVarChar(255)")]
+		public string CMTND
+		{
+			get
+			{
+				return this._CMTND;
+			}
+			set
+			{
+				if ((this._CMTND != value))
+				{
+					this._CMTND = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayDen", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayDen
+		{
+			get
+			{
+				return this._NgayDen;
+			}
+			set
+			{
+				if ((this._NgayDen != value))
+				{
+					this._NgayDen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayDi", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayDi
+		{
+			get
+			{
+				return this._NgayDi;
+			}
+			set
+			{
+				if ((this._NgayDi != value))
+				{
+					this._NgayDi = value;
+				}
 			}
 		}
 	}

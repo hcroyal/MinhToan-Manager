@@ -31,32 +31,32 @@ namespace MinhToan_Manager
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle(Settings.Default.ApplicationSkinName);
-            //Application.Run(new frm_SoDoPhong());
-            try
-            {
-                bool temp = false;
-                do
-                {
-                    temp = false;
-                    frm_Login frLogin = new frm_Login();
+            Application.Run(new frm_SoDoPhong());
+            //try
+            //{
+            //    bool temp = false;
+            //    do
+            //    {
+            //        temp = false;
+            //        frm_Login frLogin = new frm_Login();
 
-                    if (frLogin.ShowDialog() == DialogResult.OK)
-                    {
-                        Main frMain = new Main();
+            //        if (frLogin.ShowDialog() == DialogResult.OK)
+            //        {
+            //            Main frMain = new Main();
 
-                        if (frMain.ShowDialog() == DialogResult.Yes)
-                        {
-                            frMain.Close();
-                            temp = true;
-                        }
-                    }
-                }
-                while (temp);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+            //            if (frMain.ShowDialog() == DialogResult.Yes)
+            //            {
+            //                frMain.Close();
+            //                temp = true;
+            //            }
+            //        }
+            //    }
+            //    while (temp);
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show(e.Message);
+            //}
 
             SingleInstance.Stop();
         }
