@@ -47,6 +47,7 @@
             // 
             // txt_Username
             // 
+            this.txt_Username.EditValue = "";
             this.txt_Username.Location = new System.Drawing.Point(293, 226);
             this.txt_Username.Name = "txt_Username";
             this.txt_Username.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
@@ -57,6 +58,7 @@
             // 
             // txt_Password
             // 
+            this.txt_Password.EditValue = "";
             this.txt_Password.Location = new System.Drawing.Point(293, 273);
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);

@@ -62,14 +62,27 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer(this.components);
+            this.lbl_TenPhong = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_NguoiTao = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_Gia = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_TinhTrang = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_LoaiKhach = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_TenKH = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_ThoiGianThue = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.btn_DatPhong = new DevExpress.XtraEditors.SimpleButton();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.lbl_TenPhong = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.btn_DatPhong = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_LoaiPhong = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
@@ -427,20 +440,147 @@
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(804, 662);
             this.panelControl2.TabIndex = 2;
+            this.panelControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl2_Paint);
             // 
             // popupControlContainer2
             // 
             this.popupControlContainer2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.popupControlContainer2.Controls.Add(this.lbl_LoaiPhong);
             this.popupControlContainer2.Controls.Add(this.lbl_TenPhong);
+            this.popupControlContainer2.Controls.Add(this.lbl_NguoiTao);
+            this.popupControlContainer2.Controls.Add(this.lbl_Gia);
+            this.popupControlContainer2.Controls.Add(this.lbl_TinhTrang);
+            this.popupControlContainer2.Controls.Add(this.lbl_LoaiKhach);
+            this.popupControlContainer2.Controls.Add(this.lbl_TenKH);
+            this.popupControlContainer2.Controls.Add(this.labelControl11);
+            this.popupControlContainer2.Controls.Add(this.lbl_ThoiGianThue);
+            this.popupControlContainer2.Controls.Add(this.labelControl12);
+            this.popupControlContainer2.Controls.Add(this.labelControl10);
+            this.popupControlContainer2.Controls.Add(this.labelControl9);
+            this.popupControlContainer2.Controls.Add(this.labelControl8);
+            this.popupControlContainer2.Controls.Add(this.labelControl7);
             this.popupControlContainer2.Controls.Add(this.labelControl6);
             this.popupControlContainer2.Controls.Add(this.btn_DatPhong);
-            this.popupControlContainer2.Location = new System.Drawing.Point(42, 52);
+            this.popupControlContainer2.Location = new System.Drawing.Point(42, 51);
             this.popupControlContainer2.Manager = this.barManager1;
             this.popupControlContainer2.Name = "popupControlContainer2";
-            this.popupControlContainer2.Size = new System.Drawing.Size(250, 156);
+            this.popupControlContainer2.Size = new System.Drawing.Size(301, 204);
             this.popupControlContainer2.TabIndex = 5;
             this.popupControlContainer2.Visible = false;
             this.popupControlContainer2.Paint += new System.Windows.Forms.PaintEventHandler(this.popupControlContainer2_Paint);
+            // 
+            // lbl_TenPhong
+            // 
+            this.lbl_TenPhong.Location = new System.Drawing.Point(73, 16);
+            this.lbl_TenPhong.Name = "lbl_TenPhong";
+            this.lbl_TenPhong.Size = new System.Drawing.Size(55, 13);
+            this.lbl_TenPhong.TabIndex = 1;
+            this.lbl_TenPhong.Text = "Tên phòng:";
+            // 
+            // lbl_NguoiTao
+            // 
+            this.lbl_NguoiTao.Location = new System.Drawing.Point(73, 62);
+            this.lbl_NguoiTao.Name = "lbl_NguoiTao";
+            this.lbl_NguoiTao.Size = new System.Drawing.Size(51, 13);
+            this.lbl_NguoiTao.TabIndex = 1;
+            this.lbl_NguoiTao.Text = "Người tạo:";
+            // 
+            // lbl_Gia
+            // 
+            this.lbl_Gia.Location = new System.Drawing.Point(73, 113);
+            this.lbl_Gia.Name = "lbl_Gia";
+            this.lbl_Gia.Size = new System.Drawing.Size(15, 13);
+            this.lbl_Gia.TabIndex = 1;
+            this.lbl_Gia.Text = "Giá";
+            // 
+            // lbl_TinhTrang
+            // 
+            this.lbl_TinhTrang.Location = new System.Drawing.Point(73, 88);
+            this.lbl_TinhTrang.Name = "lbl_TinhTrang";
+            this.lbl_TinhTrang.Size = new System.Drawing.Size(53, 13);
+            this.lbl_TinhTrang.TabIndex = 1;
+            this.lbl_TinhTrang.Text = "Tình trạng:";
+            // 
+            // lbl_LoaiKhach
+            // 
+            this.lbl_LoaiKhach.Location = new System.Drawing.Point(73, 138);
+            this.lbl_LoaiKhach.Name = "lbl_LoaiKhach";
+            this.lbl_LoaiKhach.Size = new System.Drawing.Size(54, 13);
+            this.lbl_LoaiKhach.TabIndex = 1;
+            this.lbl_LoaiKhach.Text = "Loại khách:";
+            // 
+            // lbl_TenKH
+            // 
+            this.lbl_TenKH.Location = new System.Drawing.Point(73, 182);
+            this.lbl_TenKH.Name = "lbl_TenKH";
+            this.lbl_TenKH.Size = new System.Drawing.Size(38, 13);
+            this.lbl_TenKH.TabIndex = 1;
+            this.lbl_TenKH.Text = "Tên KH:";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(12, 182);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(38, 13);
+            this.labelControl11.TabIndex = 1;
+            this.labelControl11.Text = "Tên KH:";
+            // 
+            // lbl_ThoiGianThue
+            // 
+            this.lbl_ThoiGianThue.Location = new System.Drawing.Point(12, 160);
+            this.lbl_ThoiGianThue.Name = "lbl_ThoiGianThue";
+            this.lbl_ThoiGianThue.Size = new System.Drawing.Size(10, 13);
+            this.lbl_ThoiGianThue.TabIndex = 1;
+            this.lbl_ThoiGianThue.Text = "tg";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(12, 138);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(54, 13);
+            this.labelControl10.TabIndex = 1;
+            this.labelControl10.Text = "Loại khách:";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(12, 113);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(19, 13);
+            this.labelControl9.TabIndex = 1;
+            this.labelControl9.Text = "Giá:";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(12, 88);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(53, 13);
+            this.labelControl8.TabIndex = 1;
+            this.labelControl8.Text = "Tình trạng:";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(12, 62);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(51, 13);
+            this.labelControl7.TabIndex = 1;
+            this.labelControl7.Text = "Người tạo:";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(12, 16);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(55, 13);
+            this.labelControl6.TabIndex = 1;
+            this.labelControl6.Text = "Tên phòng:";
+            // 
+            // btn_DatPhong
+            // 
+            this.btn_DatPhong.Location = new System.Drawing.Point(162, 11);
+            this.btn_DatPhong.Name = "btn_DatPhong";
+            this.btn_DatPhong.Size = new System.Drawing.Size(111, 23);
+            this.btn_DatPhong.TabIndex = 0;
+            this.btn_DatPhong.Text = "Đặt phòng";
+            this.btn_DatPhong.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // barManager1
             // 
@@ -483,30 +623,21 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 729);
             // 
-            // lbl_TenPhong
+            // labelControl12
             // 
-            this.lbl_TenPhong.Location = new System.Drawing.Point(73, 16);
-            this.lbl_TenPhong.Name = "lbl_TenPhong";
-            this.lbl_TenPhong.Size = new System.Drawing.Size(55, 13);
-            this.lbl_TenPhong.TabIndex = 1;
-            this.lbl_TenPhong.Text = "Tên phòng:";
+            this.labelControl12.Location = new System.Drawing.Point(13, 39);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(56, 13);
+            this.labelControl12.TabIndex = 1;
+            this.labelControl12.Text = "Loại phòng:";
             // 
-            // labelControl6
+            // lbl_LoaiPhong
             // 
-            this.labelControl6.Location = new System.Drawing.Point(12, 16);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(55, 13);
-            this.labelControl6.TabIndex = 1;
-            this.labelControl6.Text = "Tên phòng:";
-            // 
-            // btn_DatPhong
-            // 
-            this.btn_DatPhong.Location = new System.Drawing.Point(162, 11);
-            this.btn_DatPhong.Name = "btn_DatPhong";
-            this.btn_DatPhong.Size = new System.Drawing.Size(75, 23);
-            this.btn_DatPhong.TabIndex = 0;
-            this.btn_DatPhong.Text = "Đặt phòng";
-            this.btn_DatPhong.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.lbl_LoaiPhong.Location = new System.Drawing.Point(73, 39);
+            this.lbl_LoaiPhong.Name = "lbl_LoaiPhong";
+            this.lbl_LoaiPhong.Size = new System.Drawing.Size(55, 13);
+            this.lbl_LoaiPhong.TabIndex = 1;
+            this.lbl_LoaiPhong.Text = "Tên phòng:";
             // 
             // frm_SoDoPhong
             // 
@@ -605,5 +736,18 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraEditors.LabelControl lbl_TenPhong;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl lbl_NguoiTao;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl lbl_Gia;
+        private DevExpress.XtraEditors.LabelControl lbl_TinhTrang;
+        private DevExpress.XtraEditors.LabelControl lbl_LoaiKhach;
+        private DevExpress.XtraEditors.LabelControl lbl_TenKH;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl lbl_ThoiGianThue;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl lbl_LoaiPhong;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
     }
 }

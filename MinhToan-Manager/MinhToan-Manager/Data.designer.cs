@@ -253,11 +253,50 @@ namespace MinhToan_Manager
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.proc_UpdateThongTinDatPhong")]
+		public int proc_UpdateThongTinDatPhong(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaKhachHang", DbType="Int")] System.Nullable<int> maKhachHang, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoDemKH", DbType="NVarChar(255)")] string hoDemKH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenKH", DbType="NVarChar(255)")] string tenKH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoDienThoaiKH", DbType="NVarChar(255)")] string soDienThoaiKH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(255)")] string diaChi, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="GioiTinh", DbType="NVarChar(255)")] string gioiTinh, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgaySinh", DbType="DateTime")] System.Nullable<System.DateTime> ngaySinh, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMTND", DbType="NVarChar(255)")] string cMTND, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="NVarChar(255)")] string email, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgayDen", DbType="DateTime")] System.Nullable<System.DateTime> ngayDen, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NgayDi", DbType="DateTime")] System.Nullable<System.DateTime> ngayDi, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CongTy", DbType="NVarChar(255)")] string congTy, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NguoiLienHe", DbType="NVarChar(255)")] string nguoiLienHe, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SoDienThoaiNLH", DbType="NVarChar(255)")] string soDienThoaiNLH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmailNLH", DbType="NVarChar(255)")] string emailNLH, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="GhiChu", DbType="NVarChar(255)")] string ghiChu, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TienDatCoc", DbType="Int")] System.Nullable<int> tienDatCoc, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaDatPhong", DbType="Int")] System.Nullable<int> maDatPhong)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maKhachHang, hoDemKH, tenKH, soDienThoaiKH, diaChi, gioiTinh, ngaySinh, cMTND, email, ngayDen, ngayDi, congTy, nguoiLienHe, soDienThoaiNLH, emailNLH, ghiChu, tienDatCoc, maDatPhong);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.proc_LoadData")]
 		public ISingleResult<proc_LoadDataResult> proc_LoadData([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaPhong", DbType="Int")] System.Nullable<int> maPhong)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maPhong);
 			return ((ISingleResult<proc_LoadDataResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.proc_KiemTraTrangThaiPhong")]
+		public int proc_KiemTraTrangThaiPhong()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.proc_LayThongTinPhong")]
+		public ISingleResult<proc_LayThongTinPhongResult> proc_LayThongTinPhong([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaPhong", DbType="Int")] System.Nullable<int> maPhong)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maPhong);
+			return ((ISingleResult<proc_LayThongTinPhongResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3400,6 +3439,8 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private System.Nullable<int> _Processed;
+		
 		private EntitySet<tbl_Checkin> _tbl_Checkins;
 		
 		private EntitySet<tbl_DoiPhong> _tbl_DoiPhongs;
@@ -3428,6 +3469,8 @@ namespace MinhToan_Manager
     partial void OnUserTaoChanged();
     partial void OnNgayTaoChanging(System.Nullable<System.DateTime> value);
     partial void OnNgayTaoChanged();
+    partial void OnProcessedChanging(System.Nullable<int> value);
+    partial void OnProcessedChanged();
     #endregion
 		
 		public tbl_Phong()
@@ -3584,6 +3627,26 @@ namespace MinhToan_Manager
 					this._NgayTao = value;
 					this.SendPropertyChanged("NgayTao");
 					this.OnNgayTaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Processed", DbType="Int")]
+		public System.Nullable<int> Processed
+		{
+			get
+			{
+				return this._Processed;
+			}
+			set
+			{
+				if ((this._Processed != value))
+				{
+					this.OnProcessedChanging(value);
+					this.SendPropertyChanging();
+					this._Processed = value;
+					this.SendPropertyChanged("Processed");
+					this.OnProcessedChanged();
 				}
 			}
 		}
@@ -4934,6 +4997,8 @@ namespace MinhToan_Manager
 		
 		private System.Nullable<System.DateTime> _NgayTao;
 		
+		private System.Nullable<int> _Processed;
+		
 		private EntityRef<tbl_KhachHang> _tbl_KhachHang;
 		
 		private EntityRef<tbl_Phong> _tbl_Phong;
@@ -4980,6 +5045,8 @@ namespace MinhToan_Manager
     partial void OnUserTaoChanged();
     partial void OnNgayTaoChanging(System.Nullable<System.DateTime> value);
     partial void OnNgayTaoChanged();
+    partial void OnProcessedChanging(System.Nullable<int> value);
+    partial void OnProcessedChanged();
     #endregion
 		
 		public tbl_ThongTinDatPhong()
@@ -5339,6 +5406,26 @@ namespace MinhToan_Manager
 					this._NgayTao = value;
 					this.SendPropertyChanged("NgayTao");
 					this.OnNgayTaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Processed", DbType="Int")]
+		public System.Nullable<int> Processed
+		{
+			get
+			{
+				return this._Processed;
+			}
+			set
+			{
+				if ((this._Processed != value))
+				{
+					this.OnProcessedChanging(value);
+					this.SendPropertyChanging();
+					this._Processed = value;
+					this.SendPropertyChanged("Processed");
+					this.OnProcessedChanged();
 				}
 			}
 		}
@@ -6047,6 +6134,50 @@ namespace MinhToan_Manager
 				if ((this._NgayDi != value))
 				{
 					this._NgayDi = value;
+				}
+			}
+		}
+	}
+	
+	public partial class proc_LayThongTinPhongResult
+	{
+		
+		private string _TenLoaiPhong;
+		
+		private System.Nullable<int> _DonGia;
+		
+		public proc_LayThongTinPhongResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLoaiPhong", DbType="NVarChar(255)")]
+		public string TenLoaiPhong
+		{
+			get
+			{
+				return this._TenLoaiPhong;
+			}
+			set
+			{
+				if ((this._TenLoaiPhong != value))
+				{
+					this._TenLoaiPhong = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonGia", DbType="Int")]
+		public System.Nullable<int> DonGia
+		{
+			get
+			{
+				return this._DonGia;
+			}
+			set
+			{
+				if ((this._DonGia != value))
+				{
+					this._DonGia = value;
 				}
 			}
 		}

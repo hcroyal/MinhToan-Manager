@@ -96,6 +96,9 @@
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sửaThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_LuuThongTin = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -143,10 +146,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.date_ngayden.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btn_LuuThongTin);
             this.panelControl1.Controls.Add(this.labelControl21);
             this.panelControl1.Controls.Add(this.lbl_ThongTinPhong);
             this.panelControl1.Controls.Add(this.btn_Checkin);
@@ -196,7 +201,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.2023F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.7977F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 316F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 317F));
             this.tableLayoutPanel1.Controls.Add(this.groupControl6, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupControl4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupControl3, 2, 0);
@@ -217,9 +222,9 @@
             this.groupControl6.Controls.Add(this.txt_TienDatCoc);
             this.groupControl6.Controls.Add(this.labelControl22);
             this.groupControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl6.Location = new System.Drawing.Point(694, 161);
+            this.groupControl6.Location = new System.Drawing.Point(693, 161);
             this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Size = new System.Drawing.Size(311, 308);
+            this.groupControl6.Size = new System.Drawing.Size(312, 308);
             this.groupControl6.TabIndex = 5;
             this.groupControl6.Text = "Thông tin thanh toán";
             // 
@@ -236,7 +241,7 @@
             this.txt_TienDatCoc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txt_TienDatCoc.Size = new System.Drawing.Size(151, 20);
-            this.txt_TienDatCoc.TabIndex = 1;
+            this.txt_TienDatCoc.TabIndex = 0;
             // 
             // barManager1
             // 
@@ -313,7 +318,7 @@
             this.txt_ghichudatphong.MenuManager = this.barManager1;
             this.txt_ghichudatphong.Name = "txt_ghichudatphong";
             this.txt_ghichudatphong.Size = new System.Drawing.Size(227, 139);
-            this.txt_ghichudatphong.TabIndex = 3;
+            this.txt_ghichudatphong.TabIndex = 5;
             // 
             // labelControl14
             // 
@@ -363,7 +368,7 @@
             this.txt_SDTLienHe.Properties.NullText = "Số điện thoại";
             this.txt_SDTLienHe.Properties.NullValuePromptShowForEmptyValue = true;
             this.txt_SDTLienHe.Size = new System.Drawing.Size(105, 20);
-            this.txt_SDTLienHe.TabIndex = 1;
+            this.txt_SDTLienHe.TabIndex = 3;
             // 
             // txt_NguoiLienHe
             // 
@@ -373,14 +378,14 @@
             this.txt_NguoiLienHe.Properties.NullText = "Tên";
             this.txt_NguoiLienHe.Properties.NullValuePromptShowForEmptyValue = true;
             this.txt_NguoiLienHe.Size = new System.Drawing.Size(116, 20);
-            this.txt_NguoiLienHe.TabIndex = 1;
+            this.txt_NguoiLienHe.TabIndex = 2;
             // 
             // txt_EmailNLH
             // 
             this.txt_EmailNLH.Location = new System.Drawing.Point(85, 129);
             this.txt_EmailNLH.Name = "txt_EmailNLH";
             this.txt_EmailNLH.Size = new System.Drawing.Size(227, 20);
-            this.txt_EmailNLH.TabIndex = 1;
+            this.txt_EmailNLH.TabIndex = 4;
             // 
             // txt_CongTy
             // 
@@ -393,8 +398,9 @@
             // 
             this.txt_MaDatPhong.Location = new System.Drawing.Point(85, 31);
             this.txt_MaDatPhong.Name = "txt_MaDatPhong";
+            this.txt_MaDatPhong.Properties.ReadOnly = true;
             this.txt_MaDatPhong.Size = new System.Drawing.Size(227, 20);
-            this.txt_MaDatPhong.TabIndex = 1;
+            this.txt_MaDatPhong.TabIndex = 0;
             // 
             // groupControl3
             // 
@@ -405,9 +411,9 @@
             this.groupControl3.Controls.Add(this.labelControl9);
             this.groupControl3.Controls.Add(this.labelControl7);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl3.Location = new System.Drawing.Point(694, 3);
+            this.groupControl3.Location = new System.Drawing.Point(693, 3);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(311, 152);
+            this.groupControl3.Size = new System.Drawing.Size(312, 152);
             this.groupControl3.TabIndex = 2;
             this.groupControl3.Text = "Thông tin liên lạc";
             // 
@@ -416,7 +422,7 @@
             this.txt_GhiChu.Location = new System.Drawing.Point(56, 69);
             this.txt_GhiChu.Name = "txt_GhiChu";
             this.txt_GhiChu.Size = new System.Drawing.Size(240, 74);
-            this.txt_GhiChu.TabIndex = 3;
+            this.txt_GhiChu.TabIndex = 2;
             // 
             // txt_EmailLienLac
             // 
@@ -430,7 +436,7 @@
             this.txt_DiaChiLienLac.Location = new System.Drawing.Point(53, 31);
             this.txt_DiaChiLienLac.Name = "txt_DiaChiLienLac";
             this.txt_DiaChiLienLac.Size = new System.Drawing.Size(95, 20);
-            this.txt_DiaChiLienLac.TabIndex = 1;
+            this.txt_DiaChiLienLac.TabIndex = 0;
             // 
             // labelControl8
             // 
@@ -466,7 +472,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(329, 3);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(359, 152);
+            this.groupControl2.Size = new System.Drawing.Size(358, 152);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Thông tin chung";
             // 
@@ -491,7 +497,7 @@
             this.txt_CMTND.Location = new System.Drawing.Point(50, 58);
             this.txt_CMTND.Name = "txt_CMTND";
             this.txt_CMTND.Size = new System.Drawing.Size(304, 20);
-            this.txt_CMTND.TabIndex = 1;
+            this.txt_CMTND.TabIndex = 0;
             // 
             // textEdit2
             // 
@@ -582,14 +588,14 @@
             this.txt_SoDienThoai.Location = new System.Drawing.Point(73, 96);
             this.txt_SoDienThoai.Name = "txt_SoDienThoai";
             this.txt_SoDienThoai.Size = new System.Drawing.Size(239, 20);
-            this.txt_SoDienThoai.TabIndex = 1;
+            this.txt_SoDienThoai.TabIndex = 4;
             // 
             // txt_HoDem
             // 
             this.txt_HoDem.Location = new System.Drawing.Point(73, 31);
             this.txt_HoDem.Name = "txt_HoDem";
             this.txt_HoDem.Size = new System.Drawing.Size(150, 20);
-            this.txt_HoDem.TabIndex = 1;
+            this.txt_HoDem.TabIndex = 0;
             // 
             // labelControl3
             // 
@@ -641,7 +647,7 @@
             this.groupControl5.Controls.Add(this.labelControl15);
             this.groupControl5.Location = new System.Drawing.Point(329, 161);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(359, 308);
+            this.groupControl5.Size = new System.Drawing.Size(358, 308);
             this.groupControl5.TabIndex = 4;
             this.groupControl5.Text = "Thông tin phòng";
             // 
@@ -674,7 +680,7 @@
             this.txt_TrangThai.Name = "txt_TrangThai";
             this.txt_TrangThai.Properties.ReadOnly = true;
             this.txt_TrangThai.Size = new System.Drawing.Size(206, 20);
-            this.txt_TrangThai.TabIndex = 1;
+            this.txt_TrangThai.TabIndex = 3;
             // 
             // txt_LoaiPhong
             // 
@@ -682,7 +688,7 @@
             this.txt_LoaiPhong.Name = "txt_LoaiPhong";
             this.txt_LoaiPhong.Properties.ReadOnly = true;
             this.txt_LoaiPhong.Size = new System.Drawing.Size(206, 20);
-            this.txt_LoaiPhong.TabIndex = 1;
+            this.txt_LoaiPhong.TabIndex = 2;
             // 
             // txt_Dem
             // 
@@ -690,7 +696,7 @@
             this.txt_Dem.Name = "txt_Dem";
             this.txt_Dem.Properties.ReadOnly = true;
             this.txt_Dem.Size = new System.Drawing.Size(89, 20);
-            this.txt_Dem.TabIndex = 1;
+            this.txt_Dem.TabIndex = 5;
             // 
             // txt_GiaPhong
             // 
@@ -698,7 +704,7 @@
             this.txt_GiaPhong.Name = "txt_GiaPhong";
             this.txt_GiaPhong.Properties.ReadOnly = true;
             this.txt_GiaPhong.Size = new System.Drawing.Size(206, 20);
-            this.txt_GiaPhong.TabIndex = 1;
+            this.txt_GiaPhong.TabIndex = 4;
             // 
             // date_ngaydi
             // 
@@ -716,7 +722,7 @@
             this.date_ngaydi.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.date_ngaydi.Properties.Mask.EditMask = "dd-MM-yyyy";
             this.date_ngaydi.Size = new System.Drawing.Size(206, 20);
-            this.date_ngaydi.TabIndex = 3;
+            this.date_ngaydi.TabIndex = 1;
             // 
             // labelControl20
             // 
@@ -774,7 +780,7 @@
             this.date_ngayden.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.date_ngayden.Properties.Mask.EditMask = "dd-MM-yyyy";
             this.date_ngayden.Size = new System.Drawing.Size(206, 20);
-            this.date_ngayden.TabIndex = 3;
+            this.date_ngayden.TabIndex = 0;
             // 
             // labelControl15
             // 
@@ -786,6 +792,7 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridControl1.Location = new System.Drawing.Point(0, 506);
             this.gridControl1.MainView = this.gridView1;
@@ -801,6 +808,31 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sửaThôngTinToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(146, 26);
+            // 
+            // sửaThôngTinToolStripMenuItem
+            // 
+            this.sửaThôngTinToolStripMenuItem.Name = "sửaThôngTinToolStripMenuItem";
+            this.sửaThôngTinToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.sửaThôngTinToolStripMenuItem.Text = "Sửa thông tin";
+            this.sửaThôngTinToolStripMenuItem.Click += new System.EventHandler(this.sửaThôngTinToolStripMenuItem_Click);
+            // 
+            // btn_LuuThongTin
+            // 
+            this.btn_LuuThongTin.Location = new System.Drawing.Point(759, 5);
+            this.btn_LuuThongTin.Name = "btn_LuuThongTin";
+            this.btn_LuuThongTin.Size = new System.Drawing.Size(75, 23);
+            this.btn_LuuThongTin.TabIndex = 3;
+            this.btn_LuuThongTin.Text = "Lưu thông tin";
+            this.btn_LuuThongTin.Visible = false;
+            this.btn_LuuThongTin.Click += new System.EventHandler(this.btn_LuuThongTin_Click);
             // 
             // frm_KhachLe
             // 
@@ -871,6 +903,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.date_ngayden.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -945,5 +978,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl20;
         private DevExpress.XtraEditors.LabelControl labelControl22;
         private DevExpress.XtraEditors.SpinEdit txt_TienDatCoc;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem sửaThôngTinToolStripMenuItem;
+        private DevExpress.XtraEditors.SimpleButton btn_LuuThongTin;
     }
 }

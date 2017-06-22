@@ -75,12 +75,12 @@ namespace MinhToan_Manager.MyForm
             UserLookAndFeel.Default.SkinName = Settings.Default.ApplicationSkinName;
             if (Global.gioiTinh == "nam")
             {
-                pic_User.Image = Image.FromFile(@"F:\Hoc tap\DoAnTotNghiep\MinhToan-Manager\MinhToan-Manager\MinhToan-Manager\Resources\nam.png");
+                pic_User.Image = Image.FromFile(@"F:\Dropbox\Hoc tap\DoAnTotNghiep\MinhToan-Manager\MinhToan-Manager\MinhToan-Manager\Resources\nam.png");
                 pic_User.SizeMode = PictureBoxSizeMode.Zoom;
             }
             else
             {
-                pic_User.Image = Image.FromFile(@"F:\Hoc tap\DoAnTotNghiep\MinhToan-Manager\MinhToan-Manager\MinhToan-Manager\Resources\nu.png");
+                pic_User.Image = Image.FromFile(@"F:\Dropbox\Hoc tap\DoAnTotNghiep\MinhToan-Manager\MinhToan-Manager\MinhToan-Manager\Resources\nu.png");
                 pic_User.SizeMode = PictureBoxSizeMode.Zoom;
             }
             lbl_HoTen.Text = Global.HoTen;
@@ -104,12 +104,13 @@ namespace MinhToan_Manager.MyForm
             Settings.Default.ApplicationSkinName = UserLookAndFeel.Default.SkinName;
             Settings.Default.Save();
         }
-        private bool CheckActivate(Type type)
+        public bool CheckActivate(Type type)
         {
             foreach (var item in tabbedView1.Documents)
             {
                 if (item.Control.GetType() == type)
                 {
+                    
                     tabbedView1.Controller.Activate(item);
                     return true;
                 }
@@ -128,6 +129,13 @@ namespace MinhToan_Manager.MyForm
         {
             if (CheckActivate(typeof(frm_KhachLe))) return;
             var form = new frm_KhachLe { MdiParent = this };
+            form.Show();
+        }
+
+        private void btn_QuanLyPhong_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (CheckActivate(typeof(frm_QuanLyPhong))) return;
+            var form = new frm_QuanLyPhong() { MdiParent = this };
             form.Show();
         }
     }

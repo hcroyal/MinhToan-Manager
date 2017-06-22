@@ -70,16 +70,14 @@ namespace MinhToan_Manager.MyForm
 
         private void frm_Login_Load(object sender, EventArgs e)
         {
-            txt_Username.Text = "";
-            txt_Password.Text = "";
+            txt_Username.Text = "hoangnt";
+            txt_Password.Text = "123456";
         }
 
         private int solan=0;
         private void btn_DangNhap_Click(object sender, EventArgs e)
         {
-            var str = (from w in Global.db.tbl_Users
-                where w.UserName == txt_Username.Text && w.Password == txt_Password.Text
-                select w.UserName).FirstOrDefault();
+            var str = (from w in Global.db.tbl_Users where w.UserName == txt_Username.Text && w.Password == txt_Password.Text select w.UserName).FirstOrDefault();
             if (!string.IsNullOrEmpty(str))
             {
                 Global.tenDangNhap = txt_Username.Text;

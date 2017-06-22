@@ -154,6 +154,7 @@
       <Column Name="MaLoaiPhong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UserTao" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Processed" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tbl_Phong_tbl_Checkin" Member="tbl_Checkins" ThisKey="MaPhong" OtherKey="MaPhong" Type="tbl_Checkin" />
       <Association Name="tbl_Phong_tbl_ChiTietKhachDatPhong" Member="tbl_ChiTietKhachDatPhongs" ThisKey="MaPhong" OtherKey="MaPhong" Type="tbl_ChiTietKhachDatPhong" />
       <Association Name="tbl_Phong_tbl_DoiPhong" Member="tbl_DoiPhongs" ThisKey="MaPhong" OtherKey="MaPhong" Type="tbl_DoiPhong" />
@@ -230,6 +231,7 @@
       <Column Name="TienDatCoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="UserTao" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="NgayTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Processed" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tbl_KhachHang_tbl_ThongTinDatPhong" Member="tbl_KhachHang" ThisKey="MaKhachHang" OtherKey="MaKhachHang" Type="tbl_KhachHang" IsForeignKey="true" />
       <Association Name="tbl_Phong_tbl_ThongTinDatPhong" Member="tbl_Phong" ThisKey="MaPhong" OtherKey="MaPhong" Type="tbl_Phong" IsForeignKey="true" />
       <Association Name="tbl_User_tbl_ThongTinDatPhong" Member="tbl_User" ThisKey="UserTao" OtherKey="UserName" Type="tbl_User" IsForeignKey="true" />
@@ -277,6 +279,27 @@
     <Parameter Name="TienDatCoc" Parameter="tienDatCoc" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.proc_UpdateThongTinDatPhong" Method="proc_UpdateThongTinDatPhong">
+    <Parameter Name="MaKhachHang" Parameter="maKhachHang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HoDemKH" Parameter="hoDemKH" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="TenKH" Parameter="tenKH" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="SoDienThoaiKH" Parameter="soDienThoaiKH" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="GioiTinh" Parameter="gioiTinh" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="NgaySinh" Parameter="ngaySinh" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="CMTND" Parameter="cMTND" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="NgayDen" Parameter="ngayDen" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="NgayDi" Parameter="ngayDi" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="CongTy" Parameter="congTy" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="NguoiLienHe" Parameter="nguoiLienHe" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="SoDienThoaiNLH" Parameter="soDienThoaiNLH" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="EmailNLH" Parameter="emailNLH" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="GhiChu" Parameter="ghiChu" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="TienDatCoc" Parameter="tienDatCoc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaDatPhong" Parameter="maDatPhong" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.proc_LoadData" Method="proc_LoadData">
     <Parameter Name="MaPhong" Parameter="maPhong" Type="System.Int32" DbType="Int" />
     <ElementType Name="proc_LoadDataResult">
@@ -290,6 +313,16 @@
       <Column Name="CMTND" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="NgayDen" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="NgayDi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.proc_KiemTraTrangThaiPhong" Method="proc_KiemTraTrangThaiPhong">
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.proc_LayThongTinPhong" Method="proc_LayThongTinPhong">
+    <Parameter Name="MaPhong" Parameter="maPhong" Type="System.Int32" DbType="Int" />
+    <ElementType Name="proc_LayThongTinPhongResult">
+      <Column Name="TenLoaiPhong" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DonGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

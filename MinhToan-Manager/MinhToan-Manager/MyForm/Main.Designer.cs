@@ -57,7 +57,6 @@
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
-            this.hideContainerLeft = new DevExpress.XtraBars.Docking.AutoHideContainer();
             this.dock_ChucNang = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
@@ -77,9 +76,9 @@
             this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.btn_QuanLyPhong = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
-            this.hideContainerLeft.SuspendLayout();
             this.dock_ChucNang.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -108,9 +107,10 @@
             this.btn_CheckIn,
             this.btn_CheckOut,
             this.btn_DoiPhong,
-            this.btn_TimKiem});
+            this.btn_TimKiem,
+            this.btn_QuanLyPhong});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 17;
+            this.ribbon.MaxItemId = 18;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.page_LeTan,
@@ -244,6 +244,7 @@
             // 
             // ribbonPageGroup4
             // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btn_QuanLyPhong);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
@@ -300,9 +301,9 @@
             // 
             // dockManager1
             // 
-            this.dockManager1.AutoHideContainers.AddRange(new DevExpress.XtraBars.Docking.AutoHideContainer[] {
-            this.hideContainerLeft});
             this.dockManager1.Form = this;
+            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.dock_ChucNang});
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -315,28 +316,16 @@
             "DevExpress.XtraBars.Navigation.TileNavPane",
             "DevExpress.XtraBars.TabFormControl"});
             // 
-            // hideContainerLeft
-            // 
-            this.hideContainerLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.hideContainerLeft.Controls.Add(this.dock_ChucNang);
-            this.hideContainerLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.hideContainerLeft.Location = new System.Drawing.Point(0, 143);
-            this.hideContainerLeft.Name = "hideContainerLeft";
-            this.hideContainerLeft.Size = new System.Drawing.Size(19, 467);
-            // 
             // dock_ChucNang
             // 
             this.dock_ChucNang.Controls.Add(this.dockPanel1_Container);
             this.dock_ChucNang.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dock_ChucNang.ID = new System.Guid("f067683c-26de-4689-8f3e-5bbc02bc15d5");
-            this.dock_ChucNang.Location = new System.Drawing.Point(0, 0);
+            this.dock_ChucNang.Location = new System.Drawing.Point(0, 143);
             this.dock_ChucNang.Name = "dock_ChucNang";
             this.dock_ChucNang.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dock_ChucNang.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.dock_ChucNang.SavedIndex = 0;
             this.dock_ChucNang.Size = new System.Drawing.Size(200, 467);
             this.dock_ChucNang.Text = "Chức năng";
-            this.dock_ChucNang.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
             // 
             // dockPanel1_Container
             // 
@@ -498,13 +487,20 @@
             // 
             this.tabbedView1.RootContainer.Element = null;
             // 
+            // btn_QuanLyPhong
+            // 
+            this.btn_QuanLyPhong.Caption = "Quản lý phòng";
+            this.btn_QuanLyPhong.Id = 17;
+            this.btn_QuanLyPhong.Name = "btn_QuanLyPhong";
+            this.btn_QuanLyPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_QuanLyPhong_ItemClick);
+            // 
             // Main
             // 
             this.AllowMdiBar = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 641);
-            this.Controls.Add(this.hideContainerLeft);
+            this.Controls.Add(this.dock_ChucNang);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -518,7 +514,6 @@
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
-            this.hideContainerLeft.ResumeLayout(false);
             this.dock_ChucNang.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
@@ -539,7 +534,6 @@
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraBars.Docking.DockManager dockManager1;
         private DevExpress.XtraBars.Docking.DockPanel dock_ChucNang;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraEditors.PanelControl panelControl1;
@@ -572,8 +566,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem1;
         private DevExpress.XtraNavBar.NavBarItem navBarItem2;
         private DevExpress.XtraNavBar.NavBarItem navBarItem3;
-        private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerLeft;
-        private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
         private DevExpress.XtraBars.BarButtonItem btn_SoDo;
         private DevExpress.XtraBars.BarButtonItem btn_TinhHinh;
         private DevExpress.XtraBars.BarButtonItem btn_KhachLe;
@@ -582,7 +574,10 @@
         private DevExpress.XtraBars.BarButtonItem btn_CheckOut;
         private DevExpress.XtraBars.BarButtonItem btn_DoiPhong;
         private DevExpress.XtraBars.BarButtonItem btn_TimKiem;
-        private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
+        public DevExpress.XtraBars.Docking.DockManager dockManager1;
+        public DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
+        public DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
+        private DevExpress.XtraBars.BarButtonItem btn_QuanLyPhong;
     }
 }
