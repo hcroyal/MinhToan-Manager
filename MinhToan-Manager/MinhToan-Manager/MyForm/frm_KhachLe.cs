@@ -37,6 +37,7 @@ namespace MinhToan_Manager.MyForm
         {
            
             gridControl1.DataSource = Global.db.proc_LoadData(maphong);
+            sửaThôngTinToolStripMenuItem_Click(null,null);
           
         }
 
@@ -54,27 +55,35 @@ namespace MinhToan_Manager.MyForm
 
         private void sửaThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txt_CMTND.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "CMTND") + "";
-            string makh = (from w in Global.db.tbl_KhachHangs where w.CMTND == txt_CMTND.Text select w.MaKhachHang).FirstOrDefault() + "";
-            txt_HoDem.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "HoDemKH") + "";
-            txt_Ten.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TenKH") + "";
-            cbb_GioiTinh.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "GioiTinh") + "";
-            date_NgaySinh.EditValue = DateTime.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "NgaySinh") + "");
-            txt_SoDienThoai.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "SoDienThoai") + "";
-            txt_EmailLienLac.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Email") + "";
-            txt_DiaChiLienLac.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DiaChi") + "";
-            date_ngayden.EditValue = DateTime.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "NgayDen") + "");
-            date_ngaydi.EditValue = DateTime.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "NgayDi") + "");
+            try
+            {
+                txt_CMTND.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "CMTND") + "";
+                string makh = (from w in Global.db.tbl_KhachHangs where w.CMTND == txt_CMTND.Text select w.MaKhachHang).FirstOrDefault() + "";
+                txt_HoDem.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "HoDemKH") + "";
+                txt_Ten.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TenKH") + "";
+                cbb_GioiTinh.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "GioiTinh") + "";
+                date_NgaySinh.EditValue = DateTime.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "NgaySinh") + "");
+                txt_SoDienThoai.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "SoDienThoai") + "";
+                txt_EmailLienLac.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Email") + "";
+                txt_DiaChiLienLac.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DiaChi") + "";
+                date_ngayden.EditValue = DateTime.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "NgayDen") + "");
+                date_ngaydi.EditValue = DateTime.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "NgayDi") + "");
 
-            txt_MaDatPhong.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.MaDatPhong).FirstOrDefault() + "";
-            txt_CongTy.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.CongTy).FirstOrDefault() + "";
-            txt_NguoiLienHe.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.NguoiLienHe).FirstOrDefault() + "";
-            txt_SDTLienHe.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.SoDienThoai).FirstOrDefault() + "";
-            txt_EmailNLH.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.Email).FirstOrDefault() + "";
-            txt_ghichudatphong.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.GhiChu).FirstOrDefault() + "";
-            txt_TienDatCoc.Value = decimal.Parse((from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.TienDatCoc).FirstOrDefault() + "");
+                txt_MaDatPhong.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.MaDatPhong).FirstOrDefault() + "";
+                txt_CongTy.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.CongTy).FirstOrDefault() + "";
+                txt_NguoiLienHe.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.NguoiLienHe).FirstOrDefault() + "";
+                txt_SDTLienHe.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.SoDienThoai).FirstOrDefault() + "";
+                txt_EmailNLH.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.Email).FirstOrDefault() + "";
+                txt_ghichudatphong.Text = (from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.GhiChu).FirstOrDefault() + "";
+                txt_TienDatCoc.Value = decimal.Parse((from w in Global.db.tbl_ThongTinDatPhongs where w.MaKhachHang == int.Parse(makh) select w.TienDatCoc).FirstOrDefault() + "");
 
-            btn_LuuThongTin.Visible = true;
+                btn_LuuThongTin.Visible = true;
+            }
+            catch (Exception exception)
+            {
+               
+            }
+           
 
             
         }
